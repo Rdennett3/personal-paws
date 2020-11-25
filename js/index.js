@@ -10,81 +10,6 @@ $('.next').click(function(){
   $('.slider').slick('slickNext');
 })
 
-// MAP
-
-
-
-// HERO SECTION
-
-// $(window).on("load", function() {
-//   TweenMax.from("#heroItemBravo img", 1, {
-//     delay:.1,
-//     opacity:1,
-//     y:150,
-//   });
-// });
-//
-// $(window).on("load", function() {
-//   TweenMax.from("#heroItemBravo h1", 1, {
-//     delay:.1,
-//     opacity:0,
-//     y:250,
-//     visibility:'visible',
-//   });
-// });
-//
-// $(window).on("load", function() {
-//   TweenMax.from("#heroItemAlpha h1", 1, {
-//     delay:.3,
-//     duration:1.5,
-//     opacity:0,
-//     y:150,
-//     visibility:'visible',
-//   });
-// });
-
-// const introAnimationOne = gsap.from('#introItemAlpha h1', {
-//   y:50,
-//   pin:true,
-//   opacity: 0,
-//   duration:1,
-//   ease:'ease-in',
-//   paused:true
-// });
-//
-// ScrollTrigger.create({
-//   trigger: '#introItemAlpha',
-//   start: '100px bottom',
-//   onEnter: () => introAnimationOne.restart()
-// });
-//
-// ScrollTrigger.create({
-//   trigger: '#introItemAlpha',
-//   start: '-10px bottom',
-//   onLeaveBack: () => introAnimationOne.restart()
-// });
-//
-// const introAnimationTwo = gsap.from('#introItemBravo p', {
-//   y:50,
-//   pin:true,
-//   opacity: 0,
-//   duration:1,
-//   ease:'ease-in',
-//   paused:true
-// });
-//
-// ScrollTrigger.create({
-//   trigger: '#introItemBravo',
-//   start: '100px bottom',
-//   onEnter: () => introAnimationTwo.restart()
-// });
-//
-// ScrollTrigger.create({
-//   trigger: '#introItemBravo',
-//   start: '-10px bottom',
-//   onLeaveBack: () => introAnimationTwo.restart()
-// });
-
 gsap.registerPlugin(ScrollTrigger);
 
 const animIntroAlpha = gsap.from('#introItemAlpha h1',  {
@@ -347,4 +272,25 @@ ScrollTrigger.create({
   trigger:'#ctaInnerBravo',
   start: '-50px bottom',
   onLeaveBack: () => anim10.pause(0)
+});
+
+const anim11 = gsap.from('#itemOne',  {
+  y: -50,
+  pin:true,
+  opacity: 0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true
+});
+
+ScrollTrigger.create({
+  trigger: 'lizkaitItem',
+  start: '200px bottom',
+  onEnter: () => anim11.restart()
+});
+
+ScrollTrigger.create({
+  trigger: 'lizkaitItem',
+  start: '-50px bottom',
+  onLeaveBack: () => anim11.pause(0)
 });

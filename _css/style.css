@@ -581,9 +581,9 @@ body {
 .imageRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 10px 10px;
-  grid-template-areas: ". . . ." ". . . ."; }
+  grid-template-areas: ". . . ."; }
   @media screen and (max-width: 800px) {
     .imageRow {
       grid-template-columns: 1fr 1fr;
@@ -746,109 +746,46 @@ footer {
     color: #FFFFF2;
     font-size: 10vw; }
 
-.teamUpperContainer {
+.teamContent {
   padding: 5% 0;
-  background: #FFFFF2;
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "."; }
+  background: #FFFFF2; }
 
-.teamUpperOne {
-  width: 100%;
-  height: auto;
-  text-align: center; }
-  .teamUpperOne img {
-    width: 80%;
-    height: auto;
-    box-shadow: 15px 15px 10px rgba(18, 41, 50, 0.8);
-    border-radius: 2px; }
-    @media screen and (max-width: 800px) {
-      .teamUpperOne img {
-        content: url("images/lizkaitlake.jpeg") !important; } }
+.lizkait {
+  display: flex;
+  flex-direction: row;
+  padding: 5% 0;
+  margin: 0 5%; }
 
-.teamUpperTwo {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.lizkaitItem {
+  width: 50%;
   height: auto;
   display: flex;
   align-items: flex-start;
-  justify-content: center; }
-  .teamUpperTwo h1 {
-    font-size: 6em;
-    margin: 0;
-    padding: 2.5% 0; }
-    @media screen and (max-width: 800px) {
-      .teamUpperTwo h1 {
-        font-size: 4.5em;
-        padding: 5% 0; } }
-
-.teamUpperThree {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center; }
-  .teamUpperThree p {
-    font-size: 1.115em;
-    text-align: center;
-    padding: 0 10%; }
-
-.teamLower {
-  background: #FFFFF2;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px 10px 5% 10px;
-  grid-template-areas: ". ." ". ."; }
-  @media screen and (max-width: 800px) {
-    .teamLower {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 10px 10px 5% 10px;
-      grid-template-areas: "." "." "."; } }
-
-.lowerItem {
-  display: flex;
+  justify-content: center;
+  background: #122932;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10%; }
-  .lowerItem img {
-    width: 60%;
-    height: auto;
-    box-shadow: 15px 15px 10px rgba(18, 41, 50, 0.8); }
-    @media screen and (max-width: 800px) {
-      .lowerItem img {
-        width: 80%; } }
-  .lowerItem h1 {
-    font-size: 4vw;
+  margin-bottom: 5%; }
+  .lizkaitItem h1, .lizkaitItem h2, .lizkaitItem h3 {
+    padding: 0 5%;
     margin: 0;
-    padding: 0;
-    margin-top: 50px; }
-    @media screen and (max-width: 800px) {
-      .lowerItem h1 {
-        font-size: 5em; } }
-  .lowerItem h2 {
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-    text-align: center; }
-  .lowerItem p {
-    width: 60%;
-    margin: 0;
-    margin-top: 25px;
+    color: #FFFFF2; }
+  .lizkaitItem img {
+    width: 100%;
+    height: auto; }
+  .lizkaitItem p {
+    color: #FFFFF2;
+    padding: 0 5%;
     font-size: 1.115em; }
-    @media screen and (max-width: 800px) {
-      .lowerItem p {
-        width: 85%;
-        text-align: center; } }
+
+.itemImage {
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
+  box-shadow: 5px 5px 0 #F05D5E; }
+
+.itemText {
+  -webkit-transform: translate3d(-10%, 20%, 0);
+          transform: translate3d(-10%, 20%, 0);
+  box-shadow: 5px 15px 0 #F05D5E; }
 
 .teamImages {
   background: #FFFFF2;
