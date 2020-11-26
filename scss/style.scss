@@ -811,11 +811,9 @@ body{
 
     @media screen and (max-width:800px){
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       gap:10px 10px;
       grid-template-areas:
-    ". ."
-    ". ."
     ". ."
     ". .";
     }
@@ -1010,6 +1008,7 @@ footer{
   height:75vh;
   width:auto;
   background-image:url("../images/pattern.png");
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1154,4 +1153,59 @@ footer{
 form{
   display:flex;
   flex-direction:column;
+}
+// *************
+// SERVICES PAGE
+// *************
+
+.servicesContent{
+  background:$snow;
+  padding: 5% 5%;
+}
+
+.servicesContainer{
+  display:flex;
+  flex-direction:row;
+
+}
+
+.servicesItem{
+  width:50%;
+  height:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    width:80%;
+    position:sticky;
+  }
+}
+
+.servicesBeta{
+  padding-top:8%;
+  display:flex;
+  align-items: flex-start;
+}
+
+.servicesHeading{
+  font-size: 3.5em;
+  color:$gunmetal;
+  margin:0;
+}
+
+.servicesSubHeading{
+  font-size: 2.5em;
+  color: $burgundy;
+}
+
+.serviceDescription{
+  padding:0 10% 0 0;
+}
+
+.daytime{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }

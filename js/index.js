@@ -78,13 +78,13 @@ ScrollTrigger.create({
 });
 
 const anim2 = gsap.from('#thecrew', {
-  y:50,
+  y: -50,
   pin:true,
-  opacity:0,
-  duration:1,
+  opacity: 0,
+  duration: 1,
   scale:.75,
-  ease:'ease-in',
-  paused:true
+  ease: 'ease-in',
+  paused: true
 });
 
 ScrollTrigger.create({
@@ -103,7 +103,6 @@ const anim3 = gsap.from('#gridLowerItemTwo img', {
   pin:true,
   opacity:0,
   duration:1,
-  scale:.95,
   ease:'ease-in',
   paused:true
 });
@@ -125,7 +124,6 @@ const anim4 = gsap.from('#gridTopTwo img', {
   pin:true,
   opacity:0,
   duration:1,
-  scale:.95,
   ease:'ease-in',
   paused:true
 });
@@ -294,3 +292,16 @@ ScrollTrigger.create({
   start: '-50px bottom',
   onLeaveBack: () => anim11.pause(0)
 });
+
+
+// ScrollTrigger.create({
+//   trigger: ".servicesBeta img",
+//   start: "top 50px",
+//   // pin for the difference in heights between the content and the sidebar
+//   end: self => "+=" + (document.querySelector(".servicesBeta").offsetHeight - self.pin.offsetHeight),
+//   pin: ".servicesBeta img",
+//   // before version 3.4.1, the "float" property wasn't copied to the pin-spacer, so we manually do it here. Could do it in a style sheet instead if you prefer. 
+//   onRefresh: self => self.pin.parentNode.style.float = "left",
+//   pinSpacing: false
+// });
+
