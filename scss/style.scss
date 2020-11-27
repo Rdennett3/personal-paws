@@ -105,200 +105,107 @@ body{
   }
 }
 
-.navbar{
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color:$gunmetal; /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  font-family: 'Playfair Display', serif;
+  text-decoration: none;
+  font-size: 3.5em;
+  color: $snow;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  font-size: 3.75em;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+
+  &:hover{
+    font-size:60px;
+  }
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+.menuContainer{
   width:100%;
   height:auto;
-  padding:30px 0 30px 5%;
-  margin-bottom:50px;
-  display:flex;
-  align-items:center;
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
   background:$snow;
   position:fixed;
-  z-index: 100;
+  z-index: 99;
+  padding:1% 0;
+}
 
-  @media screen and (max-width:800px){
-    display:none;
-  }
+.menuSection{
+  width:50%;
 
-  a{
-    color:$gunmetal;
-    margin: 0 20px 0 20px;
-    text-decoration: none;
-    font-size:1.5em;
-    font-family: 'Playfair Display', serif;
+  i{
+    font-size: 2em;
 
-    @media screen and (max-width:800px){
-      display: none;
+    &:hover{
+      cursor:pointer;
     }
   }
+}
+
+#menuSectionLeft{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
 
   img{
-    width:30px;
+    width:40px;
     height:auto;
-
-    @media screen and (max-width: 800px){
-      width:40px;
-    }
   }
 }
 
-.button_container {
-  display: none;
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  height: $button-height;
-  width: $button-width;
-  cursor: pointer;
-  z-index: 100;
-  transition: opacity .25s ease;
-
-  @media screen and (max-width:800px){
-    display:flex;
-    flex-direction:row;
-    align-items: center;
-    justify-content: center;
-
-  }
-
-  &:hover {
-    opacity: .7;
-  }
-
-  &.active {
-    .top {
-      transform: translateY(11px) translateX(0) rotate(45deg);
-      background: $color-active;
-    }
-    .middle {
-      opacity: 0;
-      background: $color-active;
-    }
-
-    .bottom {
-      transform: translateY(-11px) translateX(0) rotate(-45deg);
-      background: $color-active;
-    }
-    img{
-      float:left!important;
-      width:25px;
-      height:auto;
-    }
-  }
-
-  span {
-  background: $gunmetal;
-  border: none;
-  height: 5px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition:  all .35s ease;
-  cursor: pointer;
-
-    &:nth-of-type(2) {
-      top: 11px;
-    }
-
-    &:nth-of-type(3) {
-      top: 22px;
-    }
-  }
-}
-
-.overlay {
-  position: fixed;
-  background: $gunmetal;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .35s, visibility .35s, height .35s;
-  overflow: hidden;
-
-  &.open {
-    opacity: 1;
-    visibility: visible;
-    height: 100%;
-
-    li {
-      animation: fadeInRight .5s ease forwards;
-      animation-delay: .35s;
-
-      &:nth-of-type(2) {
-        animation-delay: .4s;
-      }
-      &:nth-of-type(3) {
-        animation-delay: .45s;
-      }
-      &:nth-of-type(4) {
-        animation-delay: .50s;
-      }
-    }
-  }
-  nav {
-    position: relative;
-    height: 70%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 50px;
-    font-weight: 400;
-    text-align: center;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: inline-block;
-    position: relative;
-    height: 100%;
-
-    li {
-      display: block;
-      height: 25%;
-      height: calc(100% / 4);
-      min-height: 50px;
-      position: relative;
-      opacity: 0;
-
-      a {
-        display: block;
-        position: relative;
-        color: $color-link;
-        text-decoration: none;
-        overflow: hidden;
-
-        &:hover:after,
-         &:focus:after,
-         &:active:after {
-           width: 100%;
-         }
-
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0%;
-          transform: translateX(-50%);
-          height: 3px;
-          background: $color-link;
-          transition: .35s;
-        }
-        &:active{
-          color:$burgundy;
-        }
-      }
-    }
-  }
-}
-
-.active{
-  color:$burgundy;
+#menuSectionRight{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right:5%;
 }
 
 .heroContainer{
@@ -443,7 +350,9 @@ body{
 
 #introItemAlpha{
 
-
+@media screen and (max-width:800px){
+  max-height:175px;
+}
     h1{
       color:$snow;
       font-size: 5vw;
@@ -840,6 +749,15 @@ body{
   background-size: cover;
   background-position: center;
   padding:5% 0;
+
+  @media screen and (max-width:800px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "innerAlpha innerBravo"
+    ;
+  }
 }
 
 .ctaInner{
@@ -850,6 +768,7 @@ body{
   &:nth-of-type(1){
     align-items: flex-end;
     justify-content: flex-end;
+    grid-area: innerAlpha;
 
     @media screen and (max-width:800px){
       width:100%;
@@ -880,17 +799,18 @@ body{
   &:nth-of-type(2){
     justify-content: flex-start;
     flex-direction:column;
+    grid-area:innerBravo;
 
-    @media screen and (max-width:800px){
-      display: none;
-    }
+    // @media screen and (max-width:800px){
+    //   display: none;
+    // }
 
-    h1{
+    // h1{
 
-      @media screen and (max-width: 800px){
-        display:none;
-      }
-    }
+    //   @media screen and (max-width: 800px){
+    //     display:none;
+    //   }
+    
 
     a{
       max-width:150px;
@@ -906,6 +826,10 @@ body{
   img{
     width:auto;
     height:100%;
+
+    @media screen and (max-width:800px){
+      width:100%;
+    }
   }
   h1{
     color:$snow;
@@ -1014,6 +938,7 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left:5%;
 
 
   @media screen and (max-width: 800px){
@@ -1158,54 +1083,36 @@ form{
 // SERVICES PAGE
 // *************
 
-.servicesContent{
-  background:$snow;
-  padding: 5% 5%;
-}
-
 .servicesContainer{
-  display:flex;
-  flex-direction:row;
-
+  background:$snow;
+  padding:5% 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "."
+  ;
 }
 
 .servicesItem{
-  width:50%;
+  width:100%;
   height:auto;
+  background:$snow;
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img{
-    width:80%;
-    position:sticky;
-  }
-}
-
-.servicesBeta{
-  padding-top:8%;
-  display:flex;
-  align-items: flex-start;
-}
-
-.servicesHeading{
-  font-size: 3.5em;
-  color:$gunmetal;
-  margin:0;
-}
-
-.servicesSubHeading{
-  font-size: 2.5em;
-  color: $burgundy;
-}
-
-.serviceDescription{
-  padding:0 10% 0 0;
-}
-
-.daytime{
-  display:flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+
+  h1{
+    font-size: 4em;
+    padding:0 5%;
+
+    @media screen and (max-width:800px){
+      font-size: 2.5em;
+    }
+  }
+  p{
+    padding: 0 10% 0 5%;
+  }
+  h2{
+    padding:0 5%;
+  }
 }

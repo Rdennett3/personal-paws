@@ -66,160 +66,102 @@ body {
     .mainBtn:hover:before {
       width: 100%; }
 
-.navbar {
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /* Stay in place */
+  z-index: 100;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: black;
+  /* Black fallback color */
+  background-color: #122932;
+  /* Black w/opacity */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */ }
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%;
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: center;
+  /* Centered text/links */
+  margin-top: 30px;
+  /* 30px top margin to avoid conflict with the close button on smaller screens */ }
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  font-family: 'Playfair Display', serif;
+  text-decoration: none;
+  font-size: 3.5em;
+  color: #FFFFF2;
+  display: block;
+  /* Display block instead of inline */
+  transition: 0.3s;
+  /* Transition effects on hover (color) */ }
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  font-size: 3.75em; }
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px; }
+  .overlay .closebtn:hover {
+    font-size: 60px; }
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px; }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px; } }
+
+.menuContainer {
   width: 100%;
   height: auto;
-  padding: 30px 0 30px 5%;
-  margin-bottom: 50px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
   background: #FFFFF2;
   position: fixed;
-  z-index: 100; }
-  @media screen and (max-width: 800px) {
-    .navbar {
-      display: none; } }
-  .navbar a {
-    color: #122932;
-    margin: 0 20px 0 20px;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-family: 'Playfair Display', serif; }
-    @media screen and (max-width: 800px) {
-      .navbar a {
-        display: none; } }
-  .navbar img {
-    width: 30px;
+  z-index: 99;
+  padding: 1% 0; }
+
+.menuSection {
+  width: 50%; }
+  .menuSection i {
+    font-size: 2em; }
+    .menuSection i:hover {
+      cursor: pointer; }
+
+#menuSectionLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%; }
+  #menuSectionLeft img {
+    width: 40px;
     height: auto; }
-    @media screen and (max-width: 800px) {
-      .navbar img {
-        width: 40px; } }
 
-.button_container {
-  display: none;
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  height: 27px;
-  width: 35px;
-  cursor: pointer;
-  z-index: 100;
-  transition: opacity .25s ease; }
-  @media screen and (max-width: 800px) {
-    .button_container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center; } }
-  .button_container:hover {
-    opacity: .7; }
-  .button_container.active .top {
-    -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
-            transform: translateY(11px) translateX(0) rotate(45deg);
-    background: #FFF; }
-  .button_container.active .middle {
-    opacity: 0;
-    background: #FFF; }
-  .button_container.active .bottom {
-    -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
-            transform: translateY(-11px) translateX(0) rotate(-45deg);
-    background: #FFF; }
-  .button_container.active img {
-    float: left !important;
-    width: 25px;
-    height: auto; }
-  .button_container span {
-    background: #122932;
-    border: none;
-    height: 5px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all .35s ease;
-    cursor: pointer; }
-    .button_container span:nth-of-type(2) {
-      top: 11px; }
-    .button_container span:nth-of-type(3) {
-      top: 22px; }
-
-.overlay {
-  position: fixed;
-  background: #122932;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .35s, visibility .35s, height .35s;
-  overflow: hidden; }
-  .overlay.open {
-    opacity: 1;
-    visibility: visible;
-    height: 100%; }
-    .overlay.open li {
-      -webkit-animation: fadeInRight .5s ease forwards;
-              animation: fadeInRight .5s ease forwards;
-      -webkit-animation-delay: .35s;
-              animation-delay: .35s; }
-      .overlay.open li:nth-of-type(2) {
-        -webkit-animation-delay: .4s;
-                animation-delay: .4s; }
-      .overlay.open li:nth-of-type(3) {
-        -webkit-animation-delay: .45s;
-                animation-delay: .45s; }
-      .overlay.open li:nth-of-type(4) {
-        -webkit-animation-delay: .50s;
-                animation-delay: .50s; }
-  .overlay nav {
-    position: relative;
-    height: 70%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    font-size: 50px;
-    font-weight: 400;
-    text-align: center; }
-  .overlay ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: inline-block;
-    position: relative;
-    height: 100%; }
-    .overlay ul li {
-      display: block;
-      height: 25%;
-      height: calc(100% / 4);
-      min-height: 50px;
-      position: relative;
-      opacity: 0; }
-      .overlay ul li a {
-        display: block;
-        position: relative;
-        color: #FFF;
-        text-decoration: none;
-        overflow: hidden; }
-        .overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
-          width: 100%; }
-        .overlay ul li a:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0%;
-          -webkit-transform: translateX(-50%);
-                  transform: translateX(-50%);
-          height: 3px;
-          background: #FFF;
-          transition: .35s; }
-        .overlay ul li a:active {
-          color: #F05D5E; }
-
-.active {
-  color: #F05D5E; }
+#menuSectionRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5%; }
 
 .heroContainer {
   padding-top: 5%;
@@ -304,6 +246,10 @@ body {
     .introItem {
       width: 100%;
       height: auto; } }
+
+@media screen and (max-width: 800px) {
+  #introItemAlpha {
+    max-height: 175px; } }
 
 #introItemAlpha h1 {
   color: #FFFFF2;
@@ -609,6 +555,12 @@ body {
   background-size: cover;
   background-position: center;
   padding: 5% 0; }
+  @media screen and (max-width: 800px) {
+    .cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "innerAlpha innerBravo"; } }
 
 .ctaInner {
   width: 50%;
@@ -616,7 +568,8 @@ body {
   display: flex; }
   .ctaInner:nth-of-type(1) {
     align-items: flex-end;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    grid-area: innerAlpha; }
     @media screen and (max-width: 800px) {
       .ctaInner:nth-of-type(1) {
         width: 100%;
@@ -637,13 +590,8 @@ body {
           margin-bottom: 20px; } }
   .ctaInner:nth-of-type(2) {
     justify-content: flex-start;
-    flex-direction: column; }
-    @media screen and (max-width: 800px) {
-      .ctaInner:nth-of-type(2) {
-        display: none; } }
-    @media screen and (max-width: 800px) {
-      .ctaInner:nth-of-type(2) h1 {
-        display: none; } }
+    flex-direction: column;
+    grid-area: innerBravo; }
     .ctaInner:nth-of-type(2) a {
       max-width: 150px;
       -webkit-transform: translateX(40%);
@@ -655,6 +603,9 @@ body {
   .ctaInner img {
     width: auto;
     height: 100%; }
+    @media screen and (max-width: 800px) {
+      .ctaInner img {
+        width: 100%; } }
   .ctaInner h1 {
     color: #FFFFF2;
     font-size: 6vw;
@@ -739,7 +690,8 @@ footer {
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding-left: 5%; }
   @media screen and (max-width: 800px) {
     .heroImage {
       height: 50vh; } }
@@ -830,45 +782,29 @@ form {
   display: flex;
   flex-direction: column; }
 
-.servicesContent {
-  background: #FFFFF2;
-  padding: 5% 5%; }
-
 .servicesContainer {
-  display: flex;
-  flex-direction: row; }
+  background: #FFFFF2;
+  padding: 5% 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "."; }
 
 .servicesItem {
-  width: 50%;
+  width: 100%;
   height: auto;
+  background: #FFFFF2;
   display: flex;
-  align-items: center;
-  justify-content: center; }
-  .servicesItem img {
-    width: 80%;
-    position: sticky; }
-
-.servicesBeta {
-  padding-top: 8%;
-  display: flex;
-  align-items: flex-start; }
-
-.servicesHeading {
-  font-size: 3.5em;
-  color: #122932;
-  margin: 0; }
-
-.servicesSubHeading {
-  font-size: 2.5em;
-  color: #F05D5E; }
-
-.serviceDescription {
-  padding: 0 10% 0 0; }
-
-.daytime {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center; }
+  flex-direction: column; }
+  .servicesItem h1 {
+    font-size: 4em;
+    padding: 0 5%; }
+    @media screen and (max-width: 800px) {
+      .servicesItem h1 {
+        font-size: 2.5em; } }
+  .servicesItem p {
+    padding: 0 10% 0 5%; }
+  .servicesItem h2 {
+    padding: 0 5%; }
 
 /*# sourceMappingURL=style.css.map */

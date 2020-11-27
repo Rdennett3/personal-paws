@@ -15,32 +15,34 @@
 </head>
 <body>
 
-	<div class="navbar">
-		<img src="images/bluelogo.png" alt="">
-		<a href="index.html">Home</a>
-		<a href="services.html">Our Services</a>
-		<a href="team.html">The Team</a>
-		<a href="contact.html">Contact Us</a>
-		<a href="#">Book Now</a>
-	</div>
-	<div class="button_container" id="toggle">
-		<!-- <img src="images/blue_logo.png" alt=""> -->
-		<span class="top"></span>
-		<span class="middle"></span>
-		<span class="bottom"></span>
-	</div>
+	<div id="myNav" class="overlay">
 
-	<div class="overlay" id="overlay">
-		<nav class="overlay-menu">
-			<ul>
-				<li ><a href="#" class="active">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Work</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
+		<!-- Button to close the overlay navigation -->
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  
+		<!-- Overlay content -->
+		<div class="overlay-content">
+			<a href="index.html">Home</a>
+		  <a href="services.html">Our Services</a>
+		  <a href="team.html">The Team</a>
+		  <a href="#">Book Now</a>
+		  <a href="contact.html">Contact</a>
+		</div>
+	  
+	  </div>
+	  
+	  <!-- Use any element to open/show the overlay navigation menu -->
+	  <div class="menuContainer">
+		  <div class="menuSection" id="menuSectionLeft">
+			  <a href="index.html">
+			  <img src="images/bluelogo.png" alt="">
+			</a>
+		  </div>
+		  <div class="menuSection" id="menuSectionRight">
+			<span onclick="openNav()"><i class="fas fa-bars"></i></span>
+		  </div>
+	  
 	</div>
-
 	<div class="heroContainer">
 		<div class="heroItem" id="heroItemAlpha">
 			<h1>Personal Paws</h1>
@@ -149,18 +151,6 @@
 	</div>
 	<div class="hmpImages">
 		<div class="imageRow">
-			<!-- <div class="imageItem">
-				<img src="images/dog1.png" alt="gallery image">
-			</div>
-			<div class="imageItem">
-				<img src="images/dog2.png" alt="gallery image">
-			</div>
-			<div class="imageItem">
-				<img src="images/dog3.png" alt="gallery image">
-			</div>
-			<div class="imageItem">
-				<img src="images/dog4.png" alt="gallery image">
-			</div> -->
 			<div class="imageItem">
 				<img src="images/dog5.png" alt="gallery image">
 			</div>
@@ -206,6 +196,6 @@
 		});
 	});
 	</script>
-
+	
 </body>
 </html>

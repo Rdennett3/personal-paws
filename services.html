@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Paws | Rotterdam, NY</title>
   <link rel="stylesheet" href="_css/style.css">
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
   <script
@@ -13,137 +13,144 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="navbar">
-    <img src="images/bluelogo.png" alt="">
-    <a href="index.html">Home</a>
-    <a href="#">Our Services</a>
-    <a href="team.html">The Team</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="#">Book Now</a>
+  <div id="myNav" class="overlay">
+    
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="index.html">Home</a>
+      <a href="services.html">Our Services</a>
+      <a href="team.html">The Team</a>
+      <a href="#">Book Now</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    
   </div>
-  <div class="button_container" id="toggle">
-    <span class="top"></span>
-    <span class="middle"></span>
-    <span class="bottom"></span>
-  </div>
-
-  <div class="overlay" id="overlay">
-    <nav class="overlay-menu">
-      <ul>
-        <li ><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+  
+  <!-- Use any element to open/show the overlay navigation menu -->
+  <div class="menuContainer">
+    <div class="menuSection" id="menuSectionLeft">
+      <a href="index.html">
+        <img src="images/bluelogo.png" alt="">
+      </a>
+    </div>
+    <div class="menuSection" id="menuSectionRight">
+      <span onclick="openNav()"><i class="fas fa-bars"></i></span>
+    </div>
+    
   </div>
   <div class="heroImage">
     <h1>Our Services</h1>
   </div>
-
-  <div class="servicesContent bodyContent">
-    <div class="servicesContainer">
-        <div class="servicesItem">
-            <div class="daytime">
-                <h1 class="servicesHeading">Daytime Services</h1>
-            <h2 class="servicesSubHeading">Full Day Service</h3>
-            <p class="serviceDescription">
-                43$ per dog ( if they can coexist in one kennel suite 10$ per extra dog) 
-                <br><br>
-                Drop off time Earliest 7am latest drop off time 9am - Pick Up Earliest Earliest 4pm Latest 6pm 
+  
+  <div class="servicesContainer">
+    <div class="servicesItem serviceAlpha">
+      <h1>Daytime Services</h1>
+      <h2>Full Day Service</h2>
+      <p>
+        43$ per dog ( if they can go exists in one kennel suit 10$ per extra dog)     Drop off time Earliest 7am latest drop off time 9am
         <br><br>
-         This service is designed to give your dog/dogs at least 4 hours of structured obedience and socialization at our facility. They will have their own kennel suit to enjoy lunch/down time/snack time/water breaks. ( This service also allows for customization within our service listing.) 
-            </p>
-            <h2 class="servicesSubHeading">Basic Walk</h2>
-            <p class="serviceDescription">
-                One hour basic walk/hike/socialize. 1 dog 27$ 2 dogs 37$
+        Pick Up Earliest Earliest 4pm Latest 6pm 
+        <br><br>
+        This service is designed to give your dog/dogs at least 4 hours of structured obedience and socialization at our facility. They will have their own kennel suit to enjoy lunch/down time/snack time/water breaks. ( This service also allows for customization within our service listing.) 
+      </p>
+      <br>
+      <h2>Basic Walk</h2>
+      <p>
+        One hour basic walk/hike/socialize. 1 dog 27$ 2 dogs 37$
         <br><br>
         This service is designed to give your pup/pups a break during their days and go for a walk/hike with some friends!! On leash social is included. This service does NOT include obedience maintenance. 
-            </p>
-            <h2 class="servicesSubHeading">Structured Walk</h2>
-            <p class="serviceDescription">
-                One Hour Structured walk/hike/socialize. 1 dog 33$ 2 dogs 43$
+      </p>
+      <h2>Structured Walk</h2>
+      <p>
+        One Hour Structured walk/hike/socialize. 1 dog 33$ 2 dogs 43$
         <br><br>
         This service is designed to maintain your dogs basic obedience/ foundational skills. These foundational skills need to be kept up with on a daily if not weekly basis, to ensure that your pup is a well rounded, calm, confident individual. Our Structured walk works on not only leash skills and obedience but works on proper socialization. This service teaches our pack to not only introduce themselves appropriately while on leash but to also work around and with other dogs. ( not every time they see a dog is it “recess” ) We teach the pack to work hard together in low and high distraction areas to proof their foundational skills. This is to ensure your pup is not only getting the mental stimulation they need during their days but also to ensure that your dog is a confident well rounded individual, that can handle ANY real life scenario.
+      </p>
+      <h1>Training Services</h1>
+      <h2>Basic Obedience Training</h2>
+      <p>
+        1 hour training session 60$
         
-         
-            </p>
-            <h2 class="servicesSubHeading">K9 Cardio Training</h2>
-            <p>
-                Treadmill Circuit Training 1 Hour  One dog 41$ Two dogs 48$
-<br><br>
-This service is designed for the pups who need a bit more training wise to get extra energy out. This service is great for working breeds. This allows for them to get some energy out then quickly getting into obedience and then back to running it out again! This program not only works on mental stimulation and physical stimulation but this program helps with building confidence. 
-
- 
-            </p>
-            </div>
-        </div>
-        <div class="servicesItem servicesBeta">
-            <img src="images/dog2.png" alt="">
-        </div>
+        The beginning stages of training. Working on basic foundational skills/ Manners and leash skills. 
+      </p>
+      <h2>Intermediate Obeience</h2>
+      <p>
+        1 hour training session 65$
+        
+        Working on proofing basic obedience skill/ Manners and leash skill in high distraction areas. Also proofing with distractions that may be realistic to your every day routines. Making sure your foundation is solid before moving on to any other type of training is important for many reasons. In this class you will learn how to be setting your dog up for success in all real life situations.  
+      </p>
+      <h2>In-Home Behavioral Training</h2>
+      <p>
+        This service is designed to fit the realistic needs of the clients home life with their pups. Working on in home reactivity along with door manners, no jumping, and restructuring daily routines in side of the home. This is where everything begins, how your dog starts and ends their day is important!
+      </p>
+      <h2>K9 Cardio Training</h2>
+      <p>
+        Treadmill Circuit Training 1 Hour  One dog 41$ Two dogs 48$
+        <br><br>
+        This service is designed for the pups who need a bit more training wise to get extra energy out. This service is great for working breeds. This allows for them to get some energy out then quickly getting into obedience and then back to running it out again! This program not only works on mental stimulation and physical stimulation but this program helps with building confidence. 
+      </p>
     </div>
-    <div class="servicesContainer">
-        <div class="servicesItem">
-            <img src="images/dog2.png" alt="">
-        </div>
-        <div class="servicesItem">
-            <h1 class="servicesHeading">Training Services</h1>
-            <h2 class="servicesSubHeading">
-                Basic Obedience Training
-            </h2>
-            <p class="serviceDescription">
-                1 hour training session 60$
-                <br><br>
-                The beginning stages of training. Working on basic foundational skills/ Manners and leash skills. 
-            </p>
-        </div>
+    <!-- <div class="servicesItem serviceBravo">
+    <img src="images/dog7.png" alt="">
+    <img src="images/dog8.png" alt="">
+  </div> -->
+  <!-- <div class="servicesItem serviceCharlie">
+  
+</div> -->
+<!-- <div class="servicesItem serviceDelta">
+
+</div> -->
+</div>
+
+
+<div class="cta">
+  <div class="ctaInner" id="ctaInnerAlpha">
+    <h1>Want to see your best friend here?</h1>
+    <a href="contact.html" class="mainBtn">Get In touch</a>
+    <img src="images/soccer.png" alt="">
+  </div>
+  <div class="ctaInner" id="ctaInnerBravo">
+    <h1>Want to see your best friend here?</h1>
+    <a href="contact.html" class="mainBtn">Get In touch</a>
+  </div>
+</div>
+
+<div class="teamImages">
+  <div class="teamImageRow">
+    <div class="teamImageItem">
+      <img src="images/dog2.png" alt="gallery image">
+    </div>
+    <div class="teamImageItem">
+      <img src="images/dog3.png" alt="gallery image">
+    </div>
+    <div class="teamImageItem">
+      <img src="images/dog4.png" alt="gallery image">
+    </div>
+    <div class="teamImageItem">
+      <img src="images/dog5.png" alt="gallery image">
     </div>
   </div>
+</div>
 
-  <div class="cta">
-    <div class="ctaInner" id="ctaInnerAlpha">
-      <h1>Want to see your best friend here?</h1>
-      <a href="contact.html" class="mainBtn">Get In touch</a>
-      <img src="images/soccer.png" alt="">
-    </div>
-    <div class="ctaInner" id="ctaInnerBravo">
-      <h1>Want to see your best friend here?</h1>
-      <a href="contact.html" class="mainBtn">Get In touch</a>
-    </div>
+
+<footer>
+  <div class="footerInner" id="footLeft">
+    <ul>
+      <li>Mission</li>
+      <li>Our Team</li>
+      <li>Testimonials</li>
+      <li>Ayres Memorial Shelter</li>
+      <li>Contact</li>
+    </ul>
   </div>
-
-  <div class="teamImages">
-    <div class="teamImageRow">
-      <div class="teamImageItem">
-        <img src="images/dog2.png" alt="gallery image">
-      </div>
-      <div class="teamImageItem">
-        <img src="images/dog3.png" alt="gallery image">
-      </div>
-      <div class="teamImageItem">
-        <img src="images/dog4.png" alt="gallery image">
-      </div>
-      <div class="teamImageItem">
-        <img src="images/dog5.png" alt="gallery image">
-      </div>
-    </div>
+  <div class="footerInner" id="footRight">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
   </div>
-
-
-  <footer>
-    <div class="footerInner" id="footLeft">
-      <ul>
-        <li>Mission</li>
-        <li>Our Team</li>
-        <li>Testimonials</li>
-        <li>Ayres Memorial Shelter</li>
-        <li>Contact</li>
-      </ul>
-    </div>
-    <div class="footerInner" id="footRight">
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-instagram"></i>
-    </div>
-  </footer>
-  <script src="js/index.js"></script>
-  </body>
+</footer>
+<script src="js/index.js"></script>
+<script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
+</body>
