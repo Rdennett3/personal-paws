@@ -323,6 +323,30 @@ body{
   }
 }
 
+.heroImage{
+  height:75vh;
+  width:auto;
+  background-image:url("../images/pattern.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-left:5%;
+
+
+  @media screen and (max-width: 800px){
+    height:40vh;
+  }
+
+
+  h1{
+    color:$snow;
+    font-size: 10vw;
+  }
+}
+
 .introContainer{
   background-image:url('../images/pattern.png');
   background-size: cover;
@@ -949,31 +973,6 @@ footer{
 // TEAM PAGE STYLES
 // *****************
 
-
-.heroImage{
-  // height:75vh;
-  width:auto;
-  background-image:url("../images/pattern.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // padding-left:5%;
-
-
-  @media screen and (max-width: 800px){
-    height:40vh;
-  }
-
-
-  h1{
-    color:$snow;
-    font-size: 10vw;
-  }
-}
-
 .teamContent{
   background:$snow;
 }
@@ -983,6 +982,7 @@ footer{
   margin: 0 5%;
   background:$snow;
   display:grid;
+  grid-gap:20px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -991,18 +991,115 @@ footer{
   "."
   "."
   ;
+
+  @media screen and (max-width:800px){
+    
+  }
 }
 
 .teamItem{
-  height:500px;
-  width:auto;
-  border:5px solid red;
+  width:100%;
+  height:auto;
   // display:grid
 
   img{
     width:100%;
     height: auto;
   }
+}
+
+.teamItemInner{
+  width:100%;
+  height:auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap:10px;
+  grid-template-areas:
+  ". ."
+  ;
+  @media screen and (max-width:800px){
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "."
+    "."
+    ;
+  }
+}
+
+
+.itemInnerSection{
+  height:auto;
+
+  img{
+    width:100%;
+    height:auto;
+  }
+  p{
+    color:$snow;
+    padding:0 5%;
+  }
+  h2{
+    margin:0;
+    color:$snow;
+    padding:0 5%;
+  }
+}
+
+.itemInnerSectionBravo{
+  display:flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: center;
+  padding:5% 0;
+  background-image: url('../images/pattern.png');
+  background-size:cover;
+  background-position: center;
+}
+
+#itemInnerOne{
+  @media screen and (max-width:800px){
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "alphaOne"
+    "BravoOne"
+    ;
+  }
+}
+
+#alphaOne{
+  grid-area:alpha One;
+}
+
+#alphaTwo{
+  grid-area: alpha Two;
+}
+
+#alphaThree{
+  grid-area: alpha Three;
+}
+
+#alphaFour{
+  grid-area: alpha Four;
+}
+
+#bravoOne{
+  grid-area: bravo One;
+}
+
+#bravoTwo{
+  grid-area: bravo Two;
+}
+
+#bravoThree{
+  grid-area: bravo Three;
+}
+
+#bravoFour{
+  grid-area: bravo Four;;
 }
 
 .teamImages{
@@ -1146,7 +1243,7 @@ form{
   justify-content: center;
   // width:100%;
   // height:auto;
-  padding:0 2%;
+  padding:0 5%;
 }
 
 // .map{

@@ -226,6 +226,23 @@ body {
         font-size: 5em;
         text-align: center; } }
 
+.heroImage {
+  height: 75vh;
+  width: auto;
+  background-image: url("../images/pattern.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (max-width: 800px) {
+    .heroImage {
+      height: 40vh; } }
+  .heroImage h1 {
+    color: #FFFFF2;
+    font-size: 10vw; }
+
 .introContainer {
   background-image: url("../images/pattern.png");
   background-size: cover;
@@ -697,22 +714,6 @@ footer {
       #footRight i {
         font-size: 3em; } }
 
-.heroImage {
-  width: auto;
-  background-image: url("../images/pattern.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  @media screen and (max-width: 800px) {
-    .heroImage {
-      height: 40vh; } }
-  .heroImage h1 {
-    color: #FFFFF2;
-    font-size: 10vw; }
-
 .teamContent {
   background: #FFFFF2; }
 
@@ -721,17 +722,85 @@ footer {
   margin: 0 5%;
   background: #FFFFF2;
   display: grid;
+  grid-gap: 20px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "." "." "." "."; }
 
 .teamItem {
-  height: 500px;
-  width: auto;
-  border: 5px solid red; }
+  width: 100%;
+  height: auto; }
   .teamItem img {
     width: 100%;
     height: auto; }
+
+.teamItemInner {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  grid-template-areas: ". ."; }
+  @media screen and (max-width: 800px) {
+    .teamItemInner {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "." "."; } }
+
+.itemInnerSection {
+  height: auto; }
+  .itemInnerSection img {
+    width: 100%;
+    height: auto; }
+  .itemInnerSection p {
+    color: #FFFFF2;
+    padding: 0 5%; }
+  .itemInnerSection h2 {
+    margin: 0;
+    color: #FFFFF2;
+    padding: 0 5%; }
+
+.itemInnerSectionBravo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5% 0;
+  background-image: url("../images/pattern.png");
+  background-size: cover;
+  background-position: center; }
+
+@media screen and (max-width: 800px) {
+  #itemInnerOne {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "alphaOne" "BravoOne"; } }
+
+#alphaOne {
+  grid-area: alpha One; }
+
+#alphaTwo {
+  grid-area: alpha Two; }
+
+#alphaThree {
+  grid-area: alpha Three; }
+
+#alphaFour {
+  grid-area: alpha Four; }
+
+#bravoOne {
+  grid-area: bravo One; }
+
+#bravoTwo {
+  grid-area: bravo Two; }
+
+#bravoThree {
+  grid-area: bravo Three; }
+
+#bravoFour {
+  grid-area: bravo Four; }
 
 .teamImages {
   background: #FFFFF2;
@@ -830,6 +899,6 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2%; }
+  padding: 0 5%; }
 
 /*# sourceMappingURL=style.css.map */
