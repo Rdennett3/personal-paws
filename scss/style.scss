@@ -44,7 +44,7 @@ body{
 	padding:0;
   width:100vw;
   max-width:100vw;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   font-size:16px;
 }
 
@@ -106,10 +106,66 @@ body{
   }
 }
 
+.mainBtn2{
+  font-family: 'Playfair Display', serif;
+  font-weight:300;
+  text-decoration:none;
+  padding:15px 40px;
+  border:2px solid $gunmetal;
+  display: inline-block;
+  color: $gunmetal;
+  font-size: 1.2rem;
+  letter-spacing: .15rem;
+  transition: all .4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width:50%;
+
+  @media screen and (max-width:800px){
+    padding:10px 30px;
+    font-size: 1em;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $snow;
+    z-index: -2;
+
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: $gunmetal;
+    color:$snow;
+    transition: all .4s ease-in-out;
+    z-index: -1;
+
+  }
+  &:hover {
+  color: $snow;
+  cursor: pointer;
+
+  &:before {
+  width: 100%;
+    }
+  }
+}
+
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-  height: 100%;
-  width: 0;
+  width: 100%;
+  height: 0;
   position: fixed; /* Stay in place */
   z-index: 100; /* Sit on top */
   left: 0;
@@ -122,27 +178,76 @@ body{
 
 /* Position the content inside the overlay */
 .overlay-content {
-  position: relative;
-  top: 10%; /* 25% from the top */
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "menuone menutwo menuthree"
+  ;
 
+  @media screen and (max-width:800px){
+    grid-template-columns: 1fr;
+    grid-template-rows: .33fr .33fr .33fr;
+    grid-template-areas: 
+    "menuone"
+    "menutwo"
+    "menuthree"
+    ;
+  }
+
+  // position: relative;
+  // top: 10%; /* 25% from the top */
+  // width: 100%; /* 100% width */
+  // text-align: center; /* Centered text/links */
+  // margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  
+}
+.menuInnerSection{
+  width:100%;
+  height:100vh;
+  border-right:1px solid $snow;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 0;
+
+  @media screen and (max-width:800px){
+    height:auto;
+    text-align: center;
+  }
+  &:nth-of-type(1){
+    grid-area: menuone;
+  }
+  &:nth-of-type(2){
+    grid-area:menutwo;
+  }
+  &:nth-of-type(3){
+    grid-area: menuthree;
+  }
+}
 /* The navigation links inside the overlay */
 .overlay a {
-  padding: 8px;
+  padding:10px 0;
   font-family: 'Playfair Display', serif;
   text-decoration: none;
-  font-size: 3.5em;
+  font-size: 3em;
   color: $snow;
   display: block; /* Display block instead of inline */
   transition: 0.3s; /* Transition effects on hover (color) */
+  animation: fadeDown .5s ease;
+  @media screen and (max-width:800px){
+    font-size: 2em;
+  }
 }
+
+// .menuItem{
+//   animation: fadeDown .5s ease;
+// }
 
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
-  font-size: 3.75em;
+  font-size: 3.25em;
 }
 
 /* Position the close button (top right corner) */
@@ -168,6 +273,7 @@ body{
 }
 
 .menuContainer{
+  top:0;
   width:100%;
   height:auto;
   display: flex;
@@ -209,142 +315,69 @@ body{
   padding-right:5%;
 }
 
-.heroContainer{
-  padding-top:5%;
-  width:100%;
-  height:100vh;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  flex-direction: row;
-  background:$snow;
-  padding-bottom:5%;
+// HOMEPAGE HERO AREA
 
-  @media screen and (max-width: 800px){
-    height:100%;
-  }
+.heroContainer{
+  background:$gunmetal;
+  width:100%;
+  height:auto;
+  // position:relative;
+  padding:5.5% 0;
+  display: block;
+}
+
+.heroContainerUpper{
+  margin-top:10px;
+
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  grid-template-rows: 1fr;
+  grid-gap:10px 10px;
+  grid-template-areas:
+    ". .";
+}
+
+.heroContainerLower{
+  margin-top:10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap:10px 10px;
+  grid-template-areas:
+    ". . .";
 }
 
 .heroItem{
-  width:50%;
-  height:auto;
-  display: flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content: center;
+  height:400px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  background: $gunmetal;
 
   img{
-    width:100%;
-    height:auto;
-    // visibility:hidden;
+    height:100%;
+    width:auto;
   }
-
   h1{
+    padding-left:5%;
+    font-size:10vw;
+    line-height: .7em;
+    color:$snow;
+  }
+  h2{
+    font-size:5vw;
     color:$gunmetal;
-    font-size: 10vw;
-    line-height: .75em;
-    margin:0;
-    padding:0;
-    font-family:'Playfair Display', serif;
+    line-height:.8em;
+    padding-left: 5%;
   }
 }
 
-// .box{
-//   width: 100%;
-//   height: auto;
-//   padding:20px 0;
-//   position: relative;
-//   overflow: hidden;
-//   backface-visibility: hidden;
-// }
-
-// .imageoverlay{
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   background-color: $snow;
-//   width: 100%;
-//   height: 100%;
-// }
-
-
-#heroItemAlpha{
-  padding:0 5%;
-  align-items:flex-end;
-
-  @media screen and (max-width:800px){
-    display:none;
-  }
+#introItemh1{
+  visibility: hidden;
 }
 
-// .headlineOuter{
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   background-color: $burgundy;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .textoverlay{
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   background-color: $gunmetal;
-//   width: 100%;
-//   height: 100%;
-// }
-
-#heroItemBravo{
-  height:100%;
-  margin:5%;
-  animation-fill-mode:both;
-  // opacity:0;
-  @media screen and (max-width: 800px){
-    width:100%;
-  }
-
-  h1{
-    display: none;
-    position: absolute;
-    text-shadow: 1px 1px $gunmetal;
-    color:$snow;
-    font-size: 12vw;
-    line-height: .75em;
-    margin:0;
-    padding:0;
-    font-family:'Playfair Display', serif;
-
-    @media screen and (max-width:800px){
-      display:block;
-      font-size:5em;
-      text-align:center;
-    }
-  }
-}
-
-.heroImage{
-  height:75vh;
-  width:auto;
-  background-image:url("../images/pattern.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // padding-left:5%;
-
-
-  @media screen and (max-width: 800px){
-    height:40vh;
-  }
-
-
-  h1{
-    color:$snow;
-    font-size: 10vw;
-  }
+#lastHero{
+  background:$snow;
 }
 
 .introContainer{
@@ -973,60 +1006,116 @@ footer{
 // TEAM PAGE STYLES
 // *****************
 
+.heroImage{
+  height:70vh;
+  background-image: url('../images/pattern.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1{
+    font-size:10vw;
+    color:$snow;
+  }
+}
+
 .teamContent{
   background:$snow;
 }
 
 .teamContainer{
   padding:5% 0;
-  margin: 0 5%;
   background:$snow;
-  display:grid;
-  grid-gap:20px;
-  grid-template-columns: 1fr;
+  margin:0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px;
   grid-template-areas:
-  "."
-  "."
-  "."
-  "."
-  ;
+    ". ."
+    ". ."
+    ". ."
+    ". .";
 
   @media screen and (max-width:800px){
-    
+    display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "."
+    "."
+    "."
+    "."
+    "."
+    "."
+    "."
+    ".";
   }
 }
 
 .teamItem{
-  width:100%;
-  height:auto;
-  // display:grid
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: center;
 
   img{
     width:100%;
-    height: auto;
+    height:auto;
+  }
+
+  &:nth-of-type(2){
+    background:$gunmetal;
+    color:$snow;
+  }
+  &:nth-of-type(3){
+    background:$gunmetal;
+    color:$snow;
+  }
+  &:nth-of-type(6){
+    background:$gunmetal;
+    color:$snow;
+  }
+  &:nth-of-type(7){
+    background:$gunmetal;
+    color:$snow;
   }
 }
 
-.teamItemInner{
-  width:100%;
-  height:auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap:10px;
-  grid-template-areas:
-  ". ."
-  ;
-  @media screen and (max-width:800px){
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    "."
-    "."
-    ;
-  }
-}
+// .teamItem{
+//   width:100%;
+//   height:auto;
+//   // display:grid
+
+//   img{
+//     width:100%;
+//     height: 100%;
+//   }
+// }
+
+// .teamItemInner{
+//   width:100%;
+//   height:auto;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-template-rows: 1fr;
+//   grid-gap:10px;
+//   grid-template-areas:
+//   ". ."
+//   ;
+//   @media screen and (max-width:800px){
+//     grid-template-columns: 1fr;
+//     grid-template-rows: 1fr 1fr;
+//     grid-template-areas: 
+//     "."
+//     "."
+//     ;
+//   }
+// }
 
 
 .itemInnerSection{
@@ -1062,7 +1151,7 @@ footer{
   @media screen and (max-width:800px){
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: .5fr .5fr;
     grid-template-areas:
     "alphaOne"
     "BravoOne"
@@ -1070,36 +1159,42 @@ footer{
   }
 }
 
+#itemInnerOne{
+
+  @media screen and (max-width:800px){
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr .5fr;
+    grid-template-areas: 
+    'alphaOne'
+    'bravoOne';
+  }
+}
+
+#itemInnerTwo{
+  @media screen and (max-width:800px){
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr .5fr;
+    grid-template-areas: 
+    'bravoTwo'
+    'alphaTwo';
+  }
+}
+
 #alphaOne{
-  grid-area:alpha One;
+  grid-area: alphaOne;
+}
+#bravoOne{
+  grid-area: bravoOne;
 }
 
 #alphaTwo{
-  grid-area: alpha Two;
-}
-
-#alphaThree{
-  grid-area: alpha Three;
-}
-
-#alphaFour{
-  grid-area: alpha Four;
-}
-
-#bravoOne{
-  grid-area: bravo One;
+  grid-area: alphaTwo;
 }
 
 #bravoTwo{
-  grid-area: bravo Two;
-}
-
-#bravoThree{
-  grid-area: bravo Three;
-}
-
-#bravoFour{
-  grid-area: bravo Four;;
+  grid-area: bravoTwo;
 }
 
 .teamImages{
@@ -1155,12 +1250,49 @@ footer{
 .contactInner{
   width:50%;
   height:auto;
-  border:1px solid red;
+  padding:0 5%;
+
+  &:nth-of-type(2){
+    background:$gunmetal;
+  }
 }
 
 form{
   display:flex;
   flex-direction:column;
+}
+
+input{
+  border:2px solid $gunmetal;
+  font-family: 'Playfair Display', serif;
+  background:$snow;
+  width:50%;
+  height:50px;
+  margin-bottom:20px;
+  font-size:1.5em;
+
+  &::placeholder{
+    color:$gunmetal;
+    font-size: 1em;
+    padding-left: 5%;
+  }
+}
+
+textarea{
+  border:2px solid $gunmetal;
+  font-family: 'Playfair Display', serif;
+  background:$snow;
+  width:100%;
+  height:250px;
+  margin-bottom:20px;
+  font-size:1.5em;
+
+  &::placeholder{
+    color:$gunmetal;
+    font-size: 1em;
+    padding-left:2.5%;
+    padding-top:2.5%;
+  }
 }
 
 // *************

@@ -1,22 +1,57 @@
+document.body.classList.add('js-loading');
+
+window.addEventListener("load", showPage);
+
+function showPage() {
+  document.body.classList.remove('js-loading');
+}
+
 function openNav() {
-  document.getElementById("myNav").style.width = "100%";
+  document.getElementById("myNav").style.height = "100%";
 }
 
 function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("myNav").style.height = "0%";
 }
 
-// SLIDER
+TweenMax.from("#introItemh1", .9, {y:200,delay:1.5});
+TweenMax.to("#introItemh1", .9, {autoAlpha:1});
 
-$('.prev').click(function(){
-  $('.slider').slick('slickPrev');
-})
+TweenMax.from("#introItemImg", .9, {x:400,delay:1.2, opacity:0});
+TweenMax.to("#introItemImg", .9, {autoAlpha:1});
 
-$('.next').click(function(){
-  $('.slider').slick('slickNext');
-})
+TweenMax.from("#introItemImg2", .9, {y:200,delay:1.8, opacity:0});
+TweenMax.to("#introItemImg2", .9, {autoAlpha:1});
+
+TweenMax.from("#introItemImg3", .9, {y:200,delay:1.9, opacity:0});
+TweenMax.to("#introItemImg3", .9, {autoAlpha:1});
+
+TweenMax.from("#lastHero", .9, {y:200,delay:2, opacity:0});
+TweenMax.to("#lastHero", .9, {autoAlpha:1});
+
 
 gsap.registerPlugin(ScrollTrigger);
+
+const animIntro2018 = gsap.from('#introItemh2',  {
+  y: 100,
+  pin:true,
+  opacity: 0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '.heroContainerLower',
+  start: 'top 200px',
+  onEnter: () => animIntro2018.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '.heroContainerLower',
+  start: '-50px bottom',
+  onLeaveBack: () => animIntro2018.pause(0)
+});
 
 const animIntroAlpha = gsap.from('#introItemAlpha h1',  {
   y: -50,
@@ -321,12 +356,5 @@ ScrollTrigger.create({
   onLeaveBack: () => anim12.pause(0)
 });
 
-
-// ScrollTrigger.create({
-//   trigger: ".servicesBeta img",
-//   start: "top 50px",
-//   end: self => "+=" + (document.querySelector(".servicesBeta").offsetHeight - self.pin.offsetHeight),
-//   pin: ".servicesBeta img",
-//   pinSpacing: false
-// });
-
+// var introh1 = document.getElementById("#introItemh1");
+// TweenMax.to(introh1, 2, {y:200});

@@ -21,6 +21,7 @@ body {
   padding: 0;
   width: 100vw;
   max-width: 100vw;
+  overflow-x: hidden;
   font-size: 16px; }
 
 .mainBtn {
@@ -66,10 +67,55 @@ body {
     .mainBtn:hover:before {
       width: 100%; }
 
+.mainBtn2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  text-decoration: none;
+  padding: 15px 40px;
+  border: 2px solid #122932;
+  display: inline-block;
+  color: #122932;
+  font-size: 1.2rem;
+  letter-spacing: .15rem;
+  transition: all .4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 50%; }
+  @media screen and (max-width: 800px) {
+    .mainBtn2 {
+      padding: 10px 30px;
+      font-size: 1em; } }
+  .mainBtn2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFF2;
+    z-index: -2; }
+  .mainBtn2:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #122932;
+    color: #FFFFF2;
+    transition: all .4s ease-in-out;
+    z-index: -1; }
+  .mainBtn2:hover {
+    color: #FFFFF2;
+    cursor: pointer; }
+    .mainBtn2:hover:before {
+      width: 100%; }
+
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
-  height: 100%;
-  width: 0;
+  width: 100%;
+  height: 0;
   position: fixed;
   /* Stay in place */
   z-index: 100;
@@ -87,31 +133,56 @@ body {
 
 /* Position the content inside the overlay */
 .overlay-content {
-  position: relative;
-  top: 10%;
-  /* 25% from the top */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "menuone menutwo menuthree"; }
+  @media screen and (max-width: 800px) {
+    .overlay-content {
+      grid-template-columns: 1fr;
+      grid-template-rows: .33fr .33fr .33fr;
+      grid-template-areas: "menuone" "menutwo" "menuthree"; } }
+
+.menuInnerSection {
   width: 100%;
-  /* 100% width */
-  text-align: center;
-  /* Centered text/links */
-  margin-top: 30px;
-  /* 30px top margin to avoid conflict with the close button on smaller screens */ }
+  height: 100vh;
+  border-right: 1px solid #FFFFF2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 0; }
+  @media screen and (max-width: 800px) {
+    .menuInnerSection {
+      height: auto;
+      text-align: center; } }
+  .menuInnerSection:nth-of-type(1) {
+    grid-area: menuone; }
+  .menuInnerSection:nth-of-type(2) {
+    grid-area: menutwo; }
+  .menuInnerSection:nth-of-type(3) {
+    grid-area: menuthree; }
 
 /* The navigation links inside the overlay */
 .overlay a {
-  padding: 8px;
+  padding: 10px 0;
   font-family: 'Playfair Display', serif;
   text-decoration: none;
-  font-size: 3.5em;
+  font-size: 3em;
   color: #FFFFF2;
   display: block;
   /* Display block instead of inline */
   transition: 0.3s;
-  /* Transition effects on hover (color) */ }
+  /* Transition effects on hover (color) */
+  -webkit-animation: fadeDown .5s ease;
+          animation: fadeDown .5s ease; }
+  @media screen and (max-width: 800px) {
+    .overlay a {
+      font-size: 2em; } }
 
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
-  font-size: 3.75em; }
+  font-size: 3.25em; }
 
 /* Position the close button (top right corner) */
 .overlay .closebtn {
@@ -132,6 +203,7 @@ body {
     right: 35px; } }
 
 .menuContainer {
+  top: 0;
   width: 100%;
   height: auto;
   display: flex;
@@ -164,84 +236,50 @@ body {
   padding-right: 5%; }
 
 .heroContainer {
-  padding-top: 5%;
+  background: #122932;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  background: #FFFFF2;
-  padding-bottom: 5%; }
-  @media screen and (max-width: 800px) {
-    .heroContainer {
-      height: 100%; } }
+  height: auto;
+  padding: 5.5% 0;
+  display: block; }
+
+.heroContainerUpper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px 10px;
+  grid-template-areas: ". ."; }
+
+.heroContainerLower {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px 10px;
+  grid-template-areas: ". . ."; }
 
 .heroItem {
-  width: 50%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
+  height: 400px;
+  background: #122932; }
   .heroItem img {
-    width: 100%;
-    height: auto; }
+    height: 100%;
+    width: auto; }
   .heroItem h1 {
-    color: #122932;
+    padding-left: 5%;
     font-size: 10vw;
-    line-height: .75em;
-    margin: 0;
-    padding: 0;
-    font-family: 'Playfair Display', serif; }
+    line-height: .7em;
+    color: #FFFFF2; }
+  .heroItem h2 {
+    font-size: 5vw;
+    color: #122932;
+    line-height: .8em;
+    padding-left: 5%; }
 
-#heroItemAlpha {
-  padding: 0 5%;
-  align-items: flex-end; }
-  @media screen and (max-width: 800px) {
-    #heroItemAlpha {
-      display: none; } }
+#introItemh1 {
+  visibility: hidden; }
 
-#heroItemBravo {
-  height: 100%;
-  margin: 5%;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both; }
-  @media screen and (max-width: 800px) {
-    #heroItemBravo {
-      width: 100%; } }
-  #heroItemBravo h1 {
-    display: none;
-    position: absolute;
-    text-shadow: 1px 1px #122932;
-    color: #FFFFF2;
-    font-size: 12vw;
-    line-height: .75em;
-    margin: 0;
-    padding: 0;
-    font-family: 'Playfair Display', serif; }
-    @media screen and (max-width: 800px) {
-      #heroItemBravo h1 {
-        display: block;
-        font-size: 5em;
-        text-align: center; } }
-
-.heroImage {
-  height: 75vh;
-  width: auto;
-  background-image: url("../images/pattern.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  @media screen and (max-width: 800px) {
-    .heroImage {
-      height: 40vh; } }
-  .heroImage h1 {
-    color: #FFFFF2;
-    font-size: 10vw; }
+#lastHero {
+  background: #FFFFF2; }
 
 .introContainer {
   background-image: url("../images/pattern.png");
@@ -714,39 +752,59 @@ footer {
       #footRight i {
         font-size: 3em; } }
 
+.heroImage {
+  height: 70vh;
+  background-image: url("../images/pattern.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .heroImage h1 {
+    font-size: 10vw;
+    color: #FFFFF2; }
+
 .teamContent {
   background: #FFFFF2; }
 
 .teamContainer {
   padding: 5% 0;
-  margin: 0 5%;
   background: #FFFFF2;
+  margin: 0 5%;
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "." "." "." "."; }
+  gap: 10px;
+  grid-template-areas: ". ." ". ." ". ." ". ."; }
+  @media screen and (max-width: 800px) {
+    .teamContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+      grid-template-areas: "." "." "." "." "." "." "." "."; } }
 
 .teamItem {
-  width: 100%;
-  height: auto; }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center; }
   .teamItem img {
     width: 100%;
     height: auto; }
-
-.teamItemInner {
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 10px;
-  grid-template-areas: ". ."; }
-  @media screen and (max-width: 800px) {
-    .teamItemInner {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas: "." "."; } }
+  .teamItem:nth-of-type(2) {
+    background: #122932;
+    color: #FFFFF2; }
+  .teamItem:nth-of-type(3) {
+    background: #122932;
+    color: #FFFFF2; }
+  .teamItem:nth-of-type(6) {
+    background: #122932;
+    color: #FFFFF2; }
+  .teamItem:nth-of-type(7) {
+    background: #122932;
+    color: #FFFFF2; }
 
 .itemInnerSection {
   height: auto; }
@@ -775,32 +833,34 @@ footer {
   #itemInnerOne {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: .5fr .5fr;
     grid-template-areas: "alphaOne" "BravoOne"; } }
 
+@media screen and (max-width: 800px) {
+  #itemInnerOne {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr .5fr;
+    grid-template-areas: 'alphaOne' 'bravoOne'; } }
+
+@media screen and (max-width: 800px) {
+  #itemInnerTwo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr .5fr;
+    grid-template-areas: 'bravoTwo' 'alphaTwo'; } }
+
 #alphaOne {
-  grid-area: alpha One; }
-
-#alphaTwo {
-  grid-area: alpha Two; }
-
-#alphaThree {
-  grid-area: alpha Three; }
-
-#alphaFour {
-  grid-area: alpha Four; }
+  grid-area: alphaOne; }
 
 #bravoOne {
-  grid-area: bravo One; }
+  grid-area: bravoOne; }
+
+#alphaTwo {
+  grid-area: alphaTwo; }
 
 #bravoTwo {
-  grid-area: bravo Two; }
-
-#bravoThree {
-  grid-area: bravo Three; }
-
-#bravoFour {
-  grid-area: bravo Four; }
+  grid-area: bravoTwo; }
 
 .teamImages {
   background: #FFFFF2;
@@ -838,11 +898,76 @@ footer {
 .contactInner {
   width: 50%;
   height: auto;
-  border: 1px solid red; }
+  padding: 0 5%; }
+  .contactInner:nth-of-type(2) {
+    background: #122932; }
 
 form {
   display: flex;
   flex-direction: column; }
+
+input {
+  border: 2px solid #122932;
+  font-family: 'Playfair Display', serif;
+  background: #FFFFF2;
+  width: 50%;
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 1.5em; }
+  input::-webkit-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 5%; }
+  input::-moz-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 5%; }
+  input:-ms-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 5%; }
+  input::-ms-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 5%; }
+  input::placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 5%; }
+
+textarea {
+  border: 2px solid #122932;
+  font-family: 'Playfair Display', serif;
+  background: #FFFFF2;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
+  font-size: 1.5em; }
+  textarea::-webkit-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 2.5%;
+    padding-top: 2.5%; }
+  textarea::-moz-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 2.5%;
+    padding-top: 2.5%; }
+  textarea:-ms-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 2.5%;
+    padding-top: 2.5%; }
+  textarea::-ms-input-placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 2.5%;
+    padding-top: 2.5%; }
+  textarea::placeholder {
+    color: #122932;
+    font-size: 1em;
+    padding-left: 2.5%;
+    padding-top: 2.5%; }
 
 .servicesContainer {
   width: 100%;
