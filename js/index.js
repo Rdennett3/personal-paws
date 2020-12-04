@@ -1,39 +1,33 @@
-document.body.classList.add('js-loading');
-
-window.addEventListener("load", showPage);
-
-function showPage() {
-  document.body.classList.remove('js-loading');
-}
-
-function openNav() {
-  document.getElementById("myNav").style.height = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
-}
-
-TweenMax.from("#introItemh1", .9, {y:200,delay:1.5});
-TweenMax.to("#introItemh1", .9, {autoAlpha:1});
-
-TweenMax.from("#introItemImg", .9, {x:400,delay:1.2, opacity:0});
-TweenMax.to("#introItemImg", .9, {autoAlpha:1});
-
-TweenMax.from("#introItemImg2", .9, {y:200,delay:1.8, opacity:0});
-TweenMax.to("#introItemImg2", .9, {autoAlpha:1});
-
-TweenMax.from("#introItemImg3", .9, {y:200,delay:1.9, opacity:0});
-TweenMax.to("#introItemImg3", .9, {autoAlpha:1});
-
-TweenMax.from("#lastHero", .9, {y:200,delay:2, opacity:0});
-TweenMax.to("#lastHero", .9, {autoAlpha:1});
-
+$('#toggle').click(function() {
+  $(this).toggleClass('active');
+  $('#overlay').toggleClass('open');
+ });
 
 gsap.registerPlugin(ScrollTrigger);
 
+const topIntroText = gsap.from('#heroItemAlpha h1',  {
+  y:200,
+  pin:true,
+  opacity: 0,
+  scale:.95,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '.heroContainer',
+  start: 'top 500px',
+  onEnter: () => topIntroText.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '.heroContainer',
+  start: '-50px bottom',
+  onLeaveBack: () => topIntroText.pause(0)
+});
+
 const animIntro2018 = gsap.from('#introItemh2',  {
-  y: 100,
   pin:true,
   opacity: 0,
   duration: 1,

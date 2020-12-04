@@ -12,70 +12,42 @@
 	src="https://code.jquery.com/jquery-2.2.4.min.js"
 	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="_css/vegas.min.css">
 </head>
 <body>
 
-	<div id="myNav" class="overlay">
 
-		<!-- Button to close the overlay navigation -->
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  
-		<!-- Overlay content -->
-		<div class="overlay-content">
-			<div class="menuInnerSection">
-				<ul>
-					<li class="menuItem"><a href="index.html">Home</a></li>
-					<li><a href="services.html" class="menuItem fadeDown">Our Services</a></li>
-					<li><a href="team.html" class="menuItem">The Pack</a></li>
-					<li><a href="" class="menuItem">Book Now</a></li>
-					<li><a href="contact.html" class="menuItem">Contact Us</a></li>
-				</ul>
-			</div>
-			
-			<div class="menuInnerSection">
-
-			</div>
-			<div class="menuInnerSection">
-
+	<div class="menuContainer">
+		<div class="logoContainer">
+			<a href="index.html"><img src="images/bluelogo.png" alt=""></a>
+		</div>
+		<div class="buttonOuterContainer">
+			<div class="button_container" id="toggle">
+				<span class="top"></span>
+				<span class="middle"></span>
+				<span class="bottom"></span>
 			</div>
 		</div>
-	  
-	  </div>
-	  
-	  <!-- Use any element to open/show the overlay navigation menu -->
-	  <div class="menuContainer">
-		  <div class="menuSection" id="menuSectionLeft">
-			  <a href="index.html">
-			  <img src="images/bluelogo.png" alt="">
-			</a>
-		  </div>
-		  <div class="menuSection" id="menuSectionRight">
-			<span onclick="openNav()"><i class="fas fa-bars"></i></span>
-		  </div>
-	  
 	</div>
+	  <div class="overlay" id="overlay">
+		<nav class="overlay-menu">
+		  <ul>
+			<li ><a href="index.html">Home</a></li>
+			<li><a href="services.html">Our Services</a></li>
+			<li><a href="team.html">The Pack</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="#">Book Now</a></li>
+		  </ul>
+		</nav>
+	  </div>
 
 	<div class="heroContainer">
-		<div class="heroContainerUpper">
-			<div class="heroItem" id="heroItemOne">
-				<h1 id="introItemh1">Personal<br> Paws</h1>
-			</div>
-			<div class="heroItem" id="heroItemTwo">
-				<img src="images/lizkaitlake-home.png" alt="" id="introItemImg">
-			</div>
+		<div class="heroItem" id="heroItemAlpha">
+			<h1>Personal Paws</h1>
 		</div>
-		<div class="heroContainerLower">
-			<div class="heroItem">
-				<img src="images/hmp1.png" alt="" id="introItemImg2">
-			</div>
-			<div class="heroItem">
-				<img src="images/upsidedown.jpeg" alt="" id="introItemImg3">
-			</div>
-			<div class="heroItem" id="lastHero">
-				<h2 id="introItemh2">Since 2018</h2>
-			</div>
+		<div class="heroItem" id="heroItemBravo">
+
 		</div>
-	</div>
 	</div>
 
 	<div class="introContainer">
@@ -210,16 +182,26 @@
 	<script type="text/javascript" src="js/slick.min.js"></script>
 	<script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
 
-	<script>
-	$(document).ready(function(){
-		$('.slider').slick({
-			arrows:false,
-			autoplay:true,
-			autoplaySpeed: 5000,
-			fade:true
-		});
+<script src="js/vegas.min.js"></script>
+<script>
+	$(function() {
+	  $('#heroItemBravo').vegas({
+		duration: 20000,
+		firstTransition: 'zoomOut',
+		transitionDuration:3000,
+		delay: 5000,
+		slides: [
+		  { src: 'images/dog5.png'},
+		  { src: 'images/dog6.png'},
+		  { src: 'images/dog7.png'},
+		  { src: 'images/dog8.png'}
+		],
+		transition:'zoomOut',
+		// overlay:'images/09.png'
+	  });
 	});
-	</script>
+  </script>
+
 	<!-- <script>
 		TweenMax.to("#introItemh1", 2, {x:200px});
 	</script> -->

@@ -39,6 +39,22 @@ li{
   list-style-type: none;
 }
 
+.heroImage{
+  height:70vh;
+  background-image: url('../images/pattern.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1{
+    font-size:10vw;
+    color:$snow;
+  }
+}
+
 body{
 	margin:0;
 	padding:0;
@@ -162,197 +178,238 @@ body{
   }
 }
 
-.overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-  width: 100%;
-  height: 0;
-  position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
-  left: 0;
-  top: 0;
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color:$gunmetal; /* Black w/opacity */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
-
-/* Position the content inside the overlay */
-.overlay-content {
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: 
-  "menuone menutwo menuthree"
-  ;
-
-  @media screen and (max-width:800px){
-    grid-template-columns: 1fr;
-    grid-template-rows: .33fr .33fr .33fr;
-    grid-template-areas: 
-    "menuone"
-    "menutwo"
-    "menuthree"
-    ;
-  }
-
-  // position: relative;
-  // top: 10%; /* 25% from the top */
-  // width: 100%; /* 100% width */
-  // text-align: center; /* Centered text/links */
-  // margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  
-}
-.menuInnerSection{
-  width:100%;
-  height:100vh;
-  border-right:1px solid $snow;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: center;
-  padding: 5% 0;
-
-  @media screen and (max-width:800px){
-    height:auto;
-    text-align: center;
-  }
-  &:nth-of-type(1){
-    grid-area: menuone;
-  }
-  &:nth-of-type(2){
-    grid-area:menutwo;
-  }
-  &:nth-of-type(3){
-    grid-area: menuthree;
-  }
-}
-/* The navigation links inside the overlay */
-.overlay a {
-  padding:10px 0;
-  font-family: 'Playfair Display', serif;
-  text-decoration: none;
-  font-size: 3em;
-  color: $snow;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-  animation: fadeDown .5s ease;
-  @media screen and (max-width:800px){
-    font-size: 2em;
-  }
-}
-
-// .menuItem{
-//   animation: fadeDown .5s ease;
-// }
-
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
-  font-size: 3.25em;
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-
-  &:hover{
-    font-size:60px;
-  }
-}
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
+// MENU STYLES
 
 .menuContainer{
-  top:0;
   width:100%;
-  height:auto;
-  display: flex;
-  flex-direction: row;
+  height:100px;
   background:$snow;
-  position:fixed;
-  z-index: 99;
-  padding:1% 0;
+  height:auto;
+  padding:2.5% 0;
+  display:flex;
+  flex-direction: row;
+  position: relative;
 }
 
-.menuSection{
+.logoContainer {
   width:50%;
-
-  i{
-    font-size: 2em;
-
-    &:hover{
-      cursor:pointer;
-    }
-  }
-}
-
-#menuSectionLeft{
-  display: flex;
-  justify-content: flex-start;
+  display:flex;
   align-items: center;
-  padding-left: 5%;
-
+  padding-left: 5%;;
   img{
     width:40px;
     height:auto;
   }
 }
 
-#menuSectionRight{
+.buttonOuterContainer{
+  width:50%;
+  height:auto;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding-right:5%;
+  justify-content: flex-end;
+  padding-right: 5%;
 }
+
+.button_container {
+  position: relative;
+  height: $button-height;
+  width: $button-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+  
+  
+  &:hover {
+    opacity: .7;
+  }
+  
+  &.active {
+    .top {
+      transform: translateY(10px) translateX(0) rotate(45deg);
+      background: $color-active;
+    }
+    .middle {
+      opacity: 0;
+      background: $color-active;
+    }
+    
+    .bottom {
+      transform: translateY(-10px) translateX(0) rotate(-45deg);
+      background: $color-active;
+    }
+  }
+  
+  span {
+  background: $gunmetal;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  transition:  all .35s ease;
+  cursor: pointer;
+    
+    &:nth-of-type(2) {
+      top: 10px;
+    }
+    
+    &:nth-of-type(3) {
+      top: 20px;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: hidden;
+  transition: opacity .95s, visibility .35s, width .35s;
+  z-index: 50;
+  
+  &:before {
+    content: '';
+    background: $gunmetal;
+    left: -55%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    transition: left .35s ease;
+  }
+  
+  &:after {
+    content: '';
+    background: $gunmetal;
+    right: -55%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    transition: all .35s ease;
+  }
+  
+  &.open {
+    visibility: visible;
+    height: 100%;
+    
+    &:before {
+      left: 0;
+    }
+    
+    &:after {
+      right: 0;
+    }
+    
+    li {
+      animation: fadeInUp .5s ease forwards;
+      animation-delay: .35s;
+      
+      &:nth-of-type(2) {
+        animation-delay: .45s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: .55s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: .65s;
+      }
+      &:nth-of-type(5){
+        animation-delay:.75s;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    text-align: center;
+    z-index: 100;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%; 
+    
+    li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 5);
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+      
+      a {
+        display: block;
+        position: relative;
+        color: $color-link;
+        text-decoration: none;
+        overflow: hidden;
+        
+        &:hover:after,
+         &:focus:after,
+         &:active:after {
+           width: 100%;
+         }
+        
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          transform: translateX(-50%);
+          height: 3px;
+          background: $color-link;
+          transition: .35s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    bottom: -20%;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+
 
 // HOMEPAGE HERO AREA
 
 .heroContainer{
   background:$gunmetal;
   width:100%;
-  height:auto;
-  // position:relative;
-  padding:5.5% 0;
-  display: block;
-}
-
-.heroContainerUpper{
-  margin-top:10px;
-
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  grid-template-rows: 1fr;
-  grid-gap:10px 10px;
-  grid-template-areas:
-    ". .";
-}
-
-.heroContainerLower{
-  margin-top:10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap:10px 10px;
-  grid-template-areas:
-    ". . .";
+  height:100vh;
+  display: flex;
+  flex-direction: row;
+  // border:5px solid red;
 }
 
 .heroItem{
-  height:400px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  background: $gunmetal;
+  height:auto;
+  display: flex;
+  align-items: flex-start;
 
   img{
     height:100%;
@@ -360,24 +417,26 @@ body{
   }
   h1{
     padding-left:5%;
-    font-size:10vw;
+    font-size:12vw;
     line-height: .7em;
     color:$snow;
-  }
-  h2{
-    font-size:5vw;
-    color:$gunmetal;
-    line-height:.8em;
-    padding-left: 5%;
+    transform:translateX(15%);
+    z-index: 20;;
   }
 }
 
-#introItemh1{
-  visibility: hidden;
+#heroItemAlpha{
+  width:50%;
+  display:flex;
+  align-items: center;
+  // justify-content: center;
 }
 
-#lastHero{
-  background:$snow;
+#heroItemBravo{
+  width:50%;
+  // background-image:url(../images/lizkaitlake-home.png);
+  // background-size: cover;
+  // background-position: center;
 }
 
 .introContainer{
@@ -1006,22 +1065,6 @@ footer{
 // TEAM PAGE STYLES
 // *****************
 
-.heroImage{
-  height:70vh;
-  background-image: url('../images/pattern.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  h1{
-    font-size:10vw;
-    color:$snow;
-  }
-}
-
 .teamContent{
   background:$snow;
 }
@@ -1035,25 +1078,25 @@ footer{
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 10px;
   grid-template-areas:
-    ". ."
-    ". ."
-    ". ."
-    ". .";
+    "a b"
+    "c d"
+    "e f"
+    "g h";
 
   @media screen and (max-width:800px){
     display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   gap: 10px;
   grid-template-areas:
-    "."
-    "."
-    "."
-    "."
-    "."
-    "."
-    "."
-    ".";
+    "a"
+    "b"
+    "d"
+    "c"
+    "e"
+    "f"
+    "h"
+    "g";
   }
 }
 
@@ -1062,29 +1105,65 @@ footer{
   flex-direction:column;
   align-items: flex-start;
   justify-content: center;
+  animation: fadeInUp .5s ease forwards;
+  animation-delay: .35s;
+
+  p{
+    padding:0 5%;
+  }
+
+  h2{
+    padding:0 5%;
+  }
 
   img{
     width:100%;
     height:auto;
   }
 
+  &:nth-of-type(1){
+    grid-area:a;
+  }
+
   &:nth-of-type(2){
     background:$gunmetal;
     color:$snow;
+    grid-area:b;
   }
   &:nth-of-type(3){
     background:$gunmetal;
     color:$snow;
+    grid-area: c;
+  }
+  &:nth-of-type(4){
+    grid-area:d;
+  }
+  &:nth-of-type(5){
+    grid-area: e;
   }
   &:nth-of-type(6){
     background:$gunmetal;
     color:$snow;
+    grid-area: f;
   }
   &:nth-of-type(7){
     background:$gunmetal;
     color:$snow;
+    grid-area:g;
+  }
+  &:nth-of-type(8){
+    grid-area:h;
   }
 }
+
+// .teamItemOne{
+//   grid-area: a;
+//   animation: fadeInUp;
+// }
+
+// .teamItemTwo{
+//   grid-area: b;
+// }
 
 // .teamItem{
 //   width:100%;
@@ -1263,7 +1342,7 @@ form{
 }
 
 input{
-  border:2px solid $gunmetal;
+  border:1px solid $gunmetal;
   font-family: 'Playfair Display', serif;
   background:$snow;
   width:50%;
@@ -1279,7 +1358,7 @@ input{
 }
 
 textarea{
-  border:2px solid $gunmetal;
+  border:1px solid $gunmetal;
   font-family: 'Playfair Display', serif;
   background:$snow;
   width:100%;

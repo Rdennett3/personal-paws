@@ -13,55 +13,42 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="myNav" class="overlay">
-
-		<!-- Button to close the overlay navigation -->
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  
-		<!-- Overlay content -->
-		<div class="overlay-content">
-			<div class="menuInnerSection">
-				<ul>
-					<li class="menuItem"><a href="index.html">Home</a></li>
-					<li><a href="services.html" class="menuItem fadeDown">Our Services</a></li>
-					<li><a href="team.html" class="menuItem">The Pack</a></li>
-					<li><a href="" class="menuItem">Book Now</a></li>
-					<li><a href="contact.html" class="menuItem">Contact Us</a></li>
-				</ul>
-			</div>
-			
-			<div class="menuInnerSection">
-
-			</div>
-			<div class="menuInnerSection">
-
+  
+  <div class="menuContainer">
+		<div class="logoContainer">
+			<a href="index.html"><img src="images/bluelogo.png" alt=""></a>
+		</div>
+		<div class="buttonOuterContainer">
+			<div class="button_container" id="toggle">
+				<span class="top"></span>
+				<span class="middle"></span>
+				<span class="bottom"></span>
 			</div>
 		</div>
-	  
-	  </div>
-	  
-	  <!-- Use any element to open/show the overlay navigation menu -->
-	  <div class="menuContainer">
-		  <div class="menuSection" id="menuSectionLeft">
-			  <a href="index.html">
-			  <img src="images/bluelogo.png" alt="">
-			</a>
-		  </div>
-		  <div class="menuSection" id="menuSectionRight">
-			<span onclick="openNav()"><i class="fas fa-bars"></i></span>
-		  </div>
-	  
 	</div>
+	  <div class="overlay" id="overlay">
+		<nav class="overlay-menu">
+		  <ul>
+			<li ><a href="index.html">Home</a></li>
+			<li><a href="services.html">Our Services</a></li>
+			<li><a href="team.html">The Pack</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="#">Book Now</a></li>
+		  </ul>
+		</nav>
+	  </div>
+
   <div class="heroImage">
     <h1>Meet The Team </h1>
   </div>
 
   <div class="teamContent bodyContent">
     <div class="teamContainer">
-       <div class="teamItem">
+       <div class="teamItem" id="teamItemOne">
          <img src="images/lizkaitfinal.png" alt="">
        </div>
-       <div class="teamItem">
+       <div class="teamItem" id="teamItemTwo fadeInUp">
+         <h2>Liz & Kait</h2>
          <p>
           Liz and Kait together have 8 years of combined experience in the canine industry, from volunteering to helping in local shelters; kennel work in daycare and fitness programs to managing facilities and employees. To handling canine behaviors, basic obedience, competitive handling skill’s, reading body language of canines, and extensive pet care. All of this has led the two of them where they are today!
           <br><br>
@@ -69,6 +56,7 @@
          </p>
        </div>
        <div class="teamItem">
+         <h2>Dylan<br>Manager/K9 Handler</h2>
          <p>
           I joined our team because I love dogs and it was a new and exciting opportunity. There is always something new to learn with the dogs. They have taught me a lot about myself.
           <br><br>
@@ -84,6 +72,7 @@
          <img src="images/lilyfinal.png" alt="">
        </div>
        <div class="teamItem">
+         <h2>Lily<br>K9 Handler</h2>
          <p>
           I joined the Personal Paws team because I’ve always loved dogs and have always wanted to learn how to train my dog properly, so she could become the best version of herself.
           <br><br>
@@ -93,6 +82,7 @@
          </p>
        </div>
        <div class="teamItem">
+         <h2>Mitchell<br>K9 Handler</h2>
          <p>
           I joined Personal Paws because I believed in their mission and goals within the community and with the dogs.
           <br><br>

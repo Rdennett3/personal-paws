@@ -13,34 +13,30 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="myNav" class="overlay">
-    
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    
-    <!-- Overlay content -->
-    <div class="overlay-content">
-      <a href="index.html">Home</a>
-      <a href="services.html">Our Services</a>
-      <a href="team.html">The Team</a>
-      <a href="#">Book Now</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    
-  </div>
-  
-  <!-- Use any element to open/show the overlay navigation menu -->
   <div class="menuContainer">
-    <div class="menuSection" id="menuSectionLeft">
-      <a href="index.html">
-        <img src="images/bluelogo.png" alt="">
-      </a>
-    </div>
-    <div class="menuSection" id="menuSectionRight">
-      <span onclick="openNav()"><i class="fas fa-bars"></i></span>
-    </div>
-    
-  </div>
+		<div class="logoContainer">
+			<a href="index.html"><img src="images/bluelogo.png" alt=""></a>
+		</div>
+		<div class="buttonOuterContainer">
+			<div class="button_container" id="toggle">
+				<span class="top"></span>
+				<span class="middle"></span>
+				<span class="bottom"></span>
+			</div>
+		</div>
+	</div>
+	  <div class="overlay" id="overlay">
+		<nav class="overlay-menu">
+		  <ul>
+			<li ><a href="index.html">Home</a></li>
+			<li><a href="services.html">Our Services</a></li>
+			<li><a href="team.html">The Pack</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="#">Book Now</a></li>
+		  </ul>
+		</nav>
+	  </div>	  
+	</div>
   <div class="heroImage">
     <h1>Our Services</h1>
   </div>
