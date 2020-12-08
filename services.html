@@ -56,7 +56,6 @@
             <br><br>
             This service is designed to give your dog/dogs at least 4 hours of structured obedience and socialization at our facility. They will have their own kennel suit to enjoy lunch/down time/snack time/water breaks. ( This service also allows for customization within our service listing.) 
           </p>
-          <a href="#" class="mainBtn">Book Now</a>
         </div>
         <div class="innerItem">
           <h1>Basic Walk</h1>
@@ -65,7 +64,6 @@
             <br><br>
             This service is designed to give your pup/pups a break during their days and go for a walk/hike with some friends!! On leash social is included. This service does NOT include obedience maintenance. 
           </p>
-          <a href="#" class="mainBtn">Book Now</a>
         </div>
         <div class="innerItem">
           <h1>K9 Cardio Training</h1>
@@ -81,9 +79,7 @@
           <p>One Hour Structured walk/hike/socialize. 1 dog 33$ 2 dogs 43$
             <br><br>
             This service is designed to maintain your dogs basic obedience/ foundational skills. These foundational skills need to be kept up with on a daily if not weekly basis, to ensure that your pup is a well rounded, calm, confident individual. Our Structured walk works on not only leash skills and obedience but works on proper socialization. </p>
-            <a href="#" class="mainBtn">Book Now</a>
             <br><br>
-            <!-- This service teaches our pack to not only introduce themselves appropriately while on leash but to also work around and with other dogs. ( not every time they see a dog is it “recess” ) We teach the pack to work hard together in low and high distraction areas to proof their foundational skills. This is to ensure your pup is not only getting the mental stimulation they need during their days but also to ensure that your dog is a confident well rounded individual, that can handle ANY real life scenario.</p> -->
           </div>
         </div>
       </div>
@@ -93,7 +89,7 @@
     <div class="servicesContainer">
         <div class="upperContainer">
       <div class="topImage">
-        <div class="servicesItem">
+        <div class="servicesItem slideup">
           <img src="images/trainingservices.png" alt="">
         </div>
         <div class="servicesItem" id="serviceGridOne">
@@ -104,7 +100,6 @@
                 <br><br>
                 The beginning stages of training. Working on basic foundational skills/ Manners and leash skills. 
             </p>
-            <a href="#" class="mainBtn">Book Now</a>
           </div>
           <div class="innerItem">
             <h1>Intermediate Obedience</h1>
@@ -113,7 +108,6 @@
                 <br><br>
                 Working on proofing basic obedience skill/ Manners and leash skill in high distraction areas. Also proofing with distractions that may be realistic to your every day routines. Making sure your foundation is solid before moving on to any other type of training is important for many reasons. In this class you will learn how to be setting your dog up for success in all real life situations.  
             </p>
-            <a href="#" class="mainBtn">Book Now</a>
           </div>
           <div class="innerItem">
             <h1>Behavioral Modification</h1>
@@ -122,25 +116,21 @@
                 <br><br>
                 After proofing foundation and leash skills we move onto working on behaviors. From leash reactivity, stranger danger, Jumping, excessive barking, dog reactivity, human reactivity ect.
             </p>
-            <a href="#" class="mainBtn">Book Now</a>
           </div>
           <div class="innerItem">
             <h1>In-Home Behavioral</h1>
             <p>Starting at $90
                 <br><br>
-                This service is designed to fit the realistic needs of the clients home life with their pups. Working on in home reactivity along with door manners, no jumping, and restructuring daily routines in side of the home. This is where everything begins, how your dog starts and ends their day is important!</p>
-              <a href="#" class="mainBtn">Book Now</a>
-              <br><br>
-              <!-- This service teaches our pack to not only introduce themselves appropriately while on leash but to also work around and with other dogs. ( not every time they see a dog is it “recess” ) We teach the pack to work hard together in low and high distraction areas to proof their foundational skills. This is to ensure your pup is not only getting the mental stimulation they need during their days but also to ensure that your dog is a confident well rounded individual, that can handle ANY real life scenario.</p> -->
+                This service is designed to fit the realistic needs of the clients home life with their pups. Working on in home reactivity along with door manners, no jumping, and restructuring daily routines in side of the home. This is where everything begins, how your dog starts and ends their day is important!
+              </p>
             </div>
             <div class="innerItem">
                 <h1>Nutritional Training</h1>
                 <p>
                     1 Hour pet nutrition training 60$
                     <br><br>
-This service is designed to help you learn what your dog is consuming. Helping boost kibble based diets. Teaching raw feeding and the educational reasons behind why they should be eating raw food. This service provides you with an educational folder full of tips and tricks when it comes to feeding all natural. We set you and your pups up for success by providing you with how to feed, what to feed, how much to feed. We even help you with how to place your first order!! What you put into your dogs body effects their every day lives. What they wake up and eat sets the tone to how their day starts off. Let us help your pups live longer healthier lives!  
+                    This service is designed to help you learn what your dog is consuming. Helping boost kibble based diets. Teaching raw feeding and the educational reasons behind why they should be eating raw food. This service provides you with an educational folder full of tips and tricks when it comes to feeding all natural. We set you and your pups up for success by providing you with how to feed, what to feed, how much to feed. We even help you with how to place your first order!! What you put into your dogs body effects their every day lives. What they wake up and eat sets the tone to how their day starts off. Let us help your pups live longer healthier lives!  
                 </p>
-                <a href="#" class="mainBtn">Book Now</a>
                 </div>
           </div>
         </div>
@@ -192,6 +182,30 @@ This service is designed to help you learn what your dog is consuming. Helping b
         <i class="fab fa-instagram"></i>
       </div>
     </footer>
+    <script>
+      $(window).scroll(function() {
+        $('.innerItem').each(function(){
+        var imagePos = $(this).offset().top;
+    
+        var topOfWindow = $(window).scrollTop();
+          if (imagePos < topOfWindow+800) {
+            $(this).addClass("slideUp");
+          }
+        });
+      });
+    </script>
+    <script>
+      $(window).scroll(function() {
+        $('.servicesItem img').each(function(){
+        var imagePos = $(this).offset().top;
+    
+        var topOfWindow = $(window).scrollTop();
+          if (imagePos < topOfWindow+800) {
+            $(this).addClass("slideUp");
+          }
+        });
+      });
+    </script>
     <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
   </body>

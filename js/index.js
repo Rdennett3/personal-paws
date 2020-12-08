@@ -349,6 +349,3 @@ ScrollTrigger.create({
   start: '-50px bottom',
   onLeaveBack: () => anim12.pause(0)
 });
-
-// var introh1 = document.getElementById("#introItemh1");
-// TweenMax.to(introh1, 2, {y:200});
