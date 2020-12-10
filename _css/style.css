@@ -25,6 +25,9 @@ li {
   display: flex;
   align-items: center;
   justify-content: center; }
+  @media screen and (max-width: 800px) {
+    .heroImage {
+      height: 45vh; } }
   .heroImage h1 {
     font-size: 10vw;
     color: #FFFFF2; }
@@ -34,7 +37,6 @@ body {
   padding: 0;
   width: 100vw;
   max-width: 100vw;
-  overflow-x: hidden;
   font-size: 16px; }
 
 .mainBtn {
@@ -85,7 +87,7 @@ body {
   font-weight: 300;
   text-decoration: none;
   padding: 15px 40px;
-  border: 2px solid #122932;
+  border: 1px solid #122932;
   display: inline-block;
   color: #122932;
   font-size: 1.2rem;
@@ -344,6 +346,9 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: row; }
+  @media screen and (max-width: 800px) {
+    .heroContainer {
+      flex-direction: column; } }
 
 .heroItem {
   height: auto;
@@ -360,15 +365,37 @@ body {
     -webkit-transform: translateX(15%);
             transform: translateX(15%);
     z-index: 20; }
+    @media screen and (max-width: 800px) {
+      .heroItem h1 {
+        padding-left: 0; } }
 
 #heroItemAlpha {
   width: 50%;
   display: flex;
   align-items: center; }
+  @media screen and (max-width: 800px) {
+    #heroItemAlpha {
+      width: 100%;
+      padding: 10% 0;
+      background-image: url("../images/pattern.png");
+      background-size: cover;
+      background-repeat: no-repeat; } }
 
 #heroItemBravo {
   margin: 50px 50px;
-  width: 50%; }
+  width: 50%;
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 800px) {
+    #heroItemBravo {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background-image: url("../images/pattern.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      justify-content: center;
+      padding: 0 50px 0 50px; } }
 
 .introContainer {
   background-image: url("../images/pattern.png");
@@ -512,6 +539,10 @@ body {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
     width: 100%; }
+    @media screen and (max-width: 800px) {
+      #gridTopThree h1 {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); } }
 
 .packGridRowLower {
   background: #FFFFF2;
@@ -540,6 +571,10 @@ body {
             transform: rotate(-90deg);
     text-align: center;
     width: 100%; }
+    @media screen and (max-width: 800px) {
+      #gridLowerItemOne h1 {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); } }
 
 #gridLowerItemTwo {
   display: flex;
@@ -996,13 +1031,19 @@ footer {
   background: #FFFFF2;
   display: flex;
   flex-direction: row; }
+  @media screen and (max-width: 800px) {
+    .contactContent {
+      flex-direction: column; } }
 
 .contactInner {
   width: 50%;
   height: auto;
   padding: 0 5%; }
-  .contactInner:nth-of-type(2) {
-    background: #122932; }
+  @media screen and (max-width: 800px) {
+    .contactInner {
+      width: 100%; } }
+  .contactInner::nth-of-type(2) iframe {
+    width: 100%; }
 
 form {
   display: flex;
@@ -1078,6 +1119,7 @@ textarea {
   padding: 5% 0; }
 
 .servicesItem {
+  visibility: hidden;
   width: 100%;
   height: auto;
   display: flex;
@@ -1103,6 +1145,7 @@ textarea {
       grid-template-areas: "." "." "." "."; } }
 
 .innerItem {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

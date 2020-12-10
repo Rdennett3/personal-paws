@@ -49,6 +49,10 @@ li{
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width:800px){
+    height: 45vh;
+  }
+
   h1{
     font-size:10vw;
     color:$snow;
@@ -60,7 +64,7 @@ body{
 	padding:0;
   width:100vw;
   max-width:100vw;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   font-size:16px;
 }
 
@@ -127,7 +131,7 @@ body{
   font-weight:300;
   text-decoration:none;
   padding:15px 40px;
-  border:2px solid $gunmetal;
+  border:1px solid $gunmetal;
   display: inline-block;
   color: $gunmetal;
   font-size: 1.2rem;
@@ -453,6 +457,11 @@ body{
   display: flex;
   flex-direction: row;
   // border:5px solid red;
+
+  @media screen and (max-width:800px){
+    flex-direction: column;
+  }
+
 }
 
 .heroItem{
@@ -470,7 +479,11 @@ body{
     line-height: .7em;
     color:$snow;
     transform:translateX(15%);
-    z-index: 20;;
+    z-index: 20;
+
+    @media screen and (max-width:800px){
+      padding-left: 0;
+    }
   }
 }
 
@@ -479,14 +492,32 @@ body{
   display:flex;
   align-items: center;
   // justify-content: center;
+
+  @media screen and (max-width:800px){
+    width:100%;
+    padding:10% 0;
+    background-image: url('../images/pattern.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
 }
 
 #heroItemBravo{
   margin: 50px 50px;
   width:50%;
-  // background-image:url(../images/lizkaitlake-home.png);
-  // background-size: cover;
-  // background-position: center;
+  display:flex;
+  align-items: center;
+
+  @media screen and (max-width:800px){
+    width:100%;
+    height:100%;
+    margin:0;
+    background-image: url('../images/pattern.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    padding:0 50px 0 50px;
+  }
 }
 
 .introContainer{
@@ -672,6 +703,10 @@ body{
     text-align: center;
     transform:rotate(90deg);
     width:100%;
+
+    @media screen and (max-width:800px){
+      transform:rotate(0deg);
+    }
   }
 }
 
@@ -708,6 +743,10 @@ body{
     transform:rotate(-90deg);
     text-align: center;
     width:100%;
+
+    @media screen and (max-width:800px){
+      transform:rotate(0deg);
+    }
   }
 }
 
@@ -1360,6 +1399,10 @@ footer{
   display: flex;
   flex-direction:row;
 
+  @media screen and (max-width:800px){
+    flex-direction: column;
+  }
+
 }
 
 .contactInner{
@@ -1367,8 +1410,14 @@ footer{
   height:auto;
   padding:0 5%;
 
-  &:nth-of-type(2){
-    background:$gunmetal;
+  @media screen and (max-width:800px){
+    width:100%;
+  }
+  &::nth-of-type(2){
+    iframe{
+      width:100%;
+
+    }
   }
 }
 
@@ -1422,6 +1471,7 @@ textarea{
 }
 
 .servicesItem{
+  visibility:hidden;
   width:100%;
   height:auto;
   display:flex;
@@ -1461,6 +1511,7 @@ textarea{
 }
 
 .innerItem{
+  visibility:hidden;
   display: flex;
   flex-direction:column;
   align-items: flex-start;
