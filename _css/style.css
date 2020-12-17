@@ -294,8 +294,8 @@ body {
 .slideUp {
   animation-name: slideUp;
   -webkit-animation-name: slideUp;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
   visibility: visible !important; }
@@ -313,14 +313,31 @@ body {
 @-webkit-keyframes slideUp {
   0% {
     -webkit-transform: translateY(100%); }
-  50% {
-    -webkit-transform: translateY(-8%); }
-  65% {
-    -webkit-transform: translateY(4%); }
-  80% {
-    -webkit-transform: translateY(-4%); }
-  95% {
-    -webkit-transform: translateY(2%); }
+  100% {
+    -webkit-transform: translateY(0%); } }
+
+.slideUpAlt {
+  animation-name: slideUpAlt;
+  -webkit-animation-name: slideUpAlt;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  visibility: visible !important; }
+
+@keyframes slideUpAlt {
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1; } }
+
+@-webkit-keyframes slideUpAlt {
+  0% {
+    -webkit-transform: translateY(100%); }
   100% {
     -webkit-transform: translateY(0%); } }
 
@@ -763,7 +780,11 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     grid-area: innerAlpha; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
+      .ctaInner:nth-of-type(1) {
+        -webkit-transform: translateX(20%);
+                transform: translateX(20%); } }
+    @media screen and (max-width: 600px) {
       .ctaInner:nth-of-type(1) {
         width: 100%;
         justify-content: center;
@@ -836,7 +857,7 @@ footer {
   position: sticky;
   bottom: 0;
   z-index: -1; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     footer {
       flex-direction: column; } }
 
@@ -847,13 +868,13 @@ footer {
   width: 50%;
   height: 100%;
   padding-left: 2%; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .footerInner {
       justify-content: center;
       width: 100%;
       text-align: center;
       padding-left: 0;
-      padding: 5% 0; } }
+      padding: 2% 0; } }
   .footerInner ul {
     margin: 0;
     padding: 0; }
@@ -873,14 +894,15 @@ footer {
   flex-direction: column;
   padding-left: 0;
   height: 100%;
-  padding: 5% 0; }
+  padding: 2% 0; }
   #footRight i {
     color: #FFFFF2;
     font-size: 5em;
     padding-bottom: 5%; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       #footRight i {
-        font-size: 3em; } }
+        font-size: 3em;
+        padding-bottom: 2%; } }
 
 .teamContent {
   background: #FFFFF2; }
@@ -912,7 +934,11 @@ footer {
   -webkit-animation-delay: .35s;
           animation-delay: .35s; }
   .teamItem p {
-    padding: 0 5%; }
+    padding: 0 5%;
+    font-size: 1em; }
+    @media screen and (max-width: 1000px) {
+      .teamItem p {
+        font-size: .9em; } }
   .teamItem h2 {
     padding: 0 5%; }
   .teamItem img {
@@ -942,6 +968,9 @@ footer {
     grid-area: g; }
   .teamItem:nth-of-type(8) {
     grid-area: h; }
+
+.teamItem2 {
+  visibility: hidden; }
 
 .itemInnerSection {
   height: auto; }
@@ -1031,7 +1060,7 @@ footer {
   background: #FFFFF2;
   display: flex;
   flex-direction: row; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .contactContent {
       flex-direction: column; } }
 
@@ -1039,7 +1068,7 @@ footer {
   width: 50%;
   height: auto;
   padding: 0 5%; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .contactInner {
       width: 100%; } }
   .contactInner::nth-of-type(2) iframe {
@@ -1085,7 +1114,8 @@ textarea {
   width: 100%;
   height: 250px;
   margin-bottom: 20px;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  margin-right: 10%; }
   textarea::-webkit-input-placeholder {
     color: #122932;
     font-size: 1em;

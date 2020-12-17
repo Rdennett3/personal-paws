@@ -349,3 +349,25 @@ ScrollTrigger.create({
   start: '-50px bottom',
   onLeaveBack: () => anim12.pause(0)
 });
+
+const teamItemAnim = gsap.from('#teamItemOne', {
+  // y:50,
+  pin:true,
+  opacity:0,
+  duration:.5,
+  // scale:.75,
+  ease:'ease-in',
+  paused:true
+});
+
+ScrollTrigger.create({
+  trigger:'#teamItemTwo',
+  start:'100px bottom',
+  onEnter: () => teamItemAnim.restart()
+});
+
+ScrollTrigger.create({
+  trigger:'#teamItemTwo',
+  start: '-50px bottom',
+  onLeaveBack: () => teamItemAnim.pause(0)
+});

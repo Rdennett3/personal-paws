@@ -394,8 +394,8 @@ body{
 	animation-name: slideUp;
 	-webkit-animation-name: slideUp;	
 
-	animation-duration: 1s;	
-	-webkit-animation-duration: 1s;
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
 
 	animation-timing-function: ease;	
 	-webkit-animation-timing-function: ease;
@@ -418,18 +418,39 @@ body{
 	0% {
 		-webkit-transform: translateY(100%);
 	}
-	50%{
-		-webkit-transform: translateY(-8%);
+	100% {
+		-webkit-transform: translateY(0%);
+	}	
+}
+
+.slideUpAlt{
+	animation-name: slideUpAlt;
+	-webkit-animation-name: slideUpAlt;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+
+@keyframes slideUpAlt {
+	0% {
+    transform: translateY(100px);
+    opacity:0;
 	}
-	65%{
-		-webkit-transform: translateY(4%);
+	100% {
+    transform: translateY(0%);
+    opacity:1;
+	}	
+}
+
+@-webkit-keyframes slideUpAlt {
+	0% {
+		-webkit-transform: translateY(100%);
 	}
-	80%{
-		-webkit-transform: translateY(-4%);
-	}
-	95%{
-		-webkit-transform: translateY(2%);
-	}			
 	100% {
 		-webkit-transform: translateY(0%);
 	}	
@@ -445,6 +466,7 @@ body{
     bottom: 0;
   }
 }
+
 
 
 
@@ -985,7 +1007,11 @@ body{
     justify-content: flex-end;
     grid-area: innerAlpha;
 
-    @media screen and (max-width:800px){
+    @media screen and (max-width:1000px){
+      transform:translateX(20%);
+    }
+
+    @media screen and (max-width:600px){
       width:100%;
       justify-content: center;
       align-items: center;
@@ -1077,7 +1103,7 @@ footer{
 	bottom:0;
 	z-index: -1;
 
-	@media screen and (max-width: 800px){
+	@media screen and (max-width: 1000px){
 		flex-direction:column;
 	}
 }
@@ -1090,12 +1116,12 @@ footer{
 	height:100%;
 	padding-left: 2%;
 
-	@media screen and (max-width: 800px){
+	@media screen and (max-width: 1000px){
 		justify-content: center;
 		width:100%;
 		text-align: center;
 		padding-left: 0;
-		padding:5% 0;
+		padding:2% 0;
 
 	}
 
@@ -1123,15 +1149,16 @@ footer{
 	flex-direction: column;
 	padding-left: 0;
 	height:100%;
-	padding:5% 0;
+	padding:2% 0;
 
 	i{
 		color:$snow;
 		font-size: 5em;
 		padding-bottom:5%;
 
-		@media screen and (max-width:800px){
-			font-size: 3em;
+		@media screen and (max-width:1000px){
+      font-size: 3em;
+      padding-bottom:2%;
 		}
 	}
 }
@@ -1185,6 +1212,10 @@ footer{
 
   p{
     padding:0 5%;
+    font-size:1em;
+    @media screen and (max-width:1000px){
+      font-size:.9em;
+    }
   }
 
   h2{
@@ -1230,6 +1261,17 @@ footer{
     grid-area:h;
   }
 }
+
+.teamItem2{
+  visibility:hidden;
+}
+
+// .teamItem{
+//   &:nth-of-type(even){
+//     animation-name:slideUpAlt;
+
+//   }
+// }
 
 // .teamItemOne{
 //   grid-area: a;
@@ -1399,7 +1441,7 @@ footer{
   display: flex;
   flex-direction:row;
 
-  @media screen and (max-width:800px){
+  @media screen and (max-width:1000px){
     flex-direction: column;
   }
 
@@ -1410,7 +1452,7 @@ footer{
   height:auto;
   padding:0 5%;
 
-  @media screen and (max-width:800px){
+  @media screen and (max-width:1000px){
     width:100%;
   }
   &::nth-of-type(2){
@@ -1450,6 +1492,7 @@ textarea{
   height:250px;
   margin-bottom:20px;
   font-size:1.5em;
+  margin-right:10%;
 
   &::placeholder{
     color:$gunmetal;
