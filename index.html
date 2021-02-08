@@ -19,7 +19,7 @@
 
 	<div class="menuContainer">
 		<div class="logoContainer">
-			<a href="index.html"><img src="images/bluelogo.png" alt=""></a>
+			<a href="index.html"><img src="images/paw-small.png" alt=""></a>
 		</div>
 		<div class="buttonOuterContainer">
 			<div class="button_container" id="toggle">
@@ -43,9 +43,9 @@
 
 	<div class="heroContainer">
 		<div class="heroItem" id="heroItemAlpha">
-			<h1>Personal Paws</h1>
+			<h1 class="reveal">The School of Personal<br> Paws</h1>
 		</div>
-		<div class="heroItem" id="heroItemBravo">
+		<div class="heroItem reveal" id="heroItemBravo">
 
 		</div>
 	</div>
@@ -53,7 +53,7 @@
 	<div class="introContainer">
 		<div class="introItem" id="introItemAlpha">
 			<h1>
-				Serving the Capital Region in Upstate NY, located in Rotterdam, NY
+				Serving the Capital Region in Upstate NY, located in Rotterdam
 			</h1>
 		</div>
 		<div class="introItem" id="introItemBravo">
@@ -64,18 +64,18 @@
 		</div>
 	</div>
 	<div class="packTitle">
-		<h1 id="packTitleH1">Meet The Crew</h1>
+		<h1 id="packTitleH1">Meet The Pack</h1>
 	</div>
 	<div class="packGridRow">
 		<div class="gridRowItem" id="gridTopOne">
 			<p>
 				Liz and Kait together have 8 years of combined experience in the canine industry, from volunteering to helping in local shelters; kennel work in daycare and fitness programs to managing facilities and employees. To handling canine behaviors, basic obedience, competitive handling skill’s, reading body language of canines, and extensive pet care. All of this has led the two of them where they are today!
 
-				Liz and Kait take pride in their customer service skills along with their ability to change the quality of relationship between canine and human. They have devoted 100% of their lives to helping dogs in need and have so much to offer their community and surrounding communities.
+				<!-- Liz and Kait take pride in their customer service skills along with their ability to change the quality of relationship between canine and human. They have devoted 100% of their lives to helping dogs in need and have so much to offer their community and surrounding communities. -->
 			</p>
 		</div>
 		<div class="gridRowItem" id="gridTopTwo">
-			<img src="images/lizkaitlake.png" alt="">
+			<img src="images/lizkaitlake.png" alt="" id="lizkaitimage">
 		</div>
 		<div class="gridRowItem" id="gridTopThree">
 			<h1 id="gridTopH1">Pack Leaders</h1>
@@ -162,47 +162,53 @@
 		</div>
 	</div>
 
-	<footer>
-		<div class="footerInner" id="footLeft">
-			<ul>
-				<li>Home</li>
-				<li>Our Services</li>
-				<li>The Pack</li>
-				<li>Contact Us</li>
-				<li>Book Now</li>
-			  </ul>
+	<div class="footer">
+		<div class="footerItem">
+		  <img src="images/pawslogo-medium.png" alt="">
 		</div>
-		<div class="footerInner" id="footRight">
-			<i class="fab fa-facebook"></i>
-			<i class="fab fa-instagram"></i>
+		<div class="footerItem">
+		  <ul>
+			<li>Home</li>
+			<li>Our Services</li>
+			<li>The Pack</li>
+			<li>Contact Us</li>
+			<li>Book Today</li>
+		  </ul>
 		</div>
-		<!-- <div class="copyright">
-			copyright 2020 Personal Paws
-		</div> -->
-	</footer>
+		<div class="footerItem">
+		  <i class="fab fa-facebook"></i>
+			  <i class="fab fa-instagram"></i>
+		</div>
+		<div class="footerItem">
+		  <p>1197 Mariaville Rd, Schenectady, NY, 12306</p>
+		  <a href="tel:123.456.7890">Give Us a Call</a>
+		</div>
+		<div class="footerItem copyright">
+		  <p>&copy; 2021 The School of Personal Paws</p>
+		</div>
+	  </div>
 
 	<script src="js/index.js"></script>
 	<script type="text/javascript" src="js/slick.min.js"></script>
 	<script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
-
-<script src="js/vegas.min.js"></script>
 <script>
 	$(function() {
-	  $('#heroItemBravo').vegas({
-		duration: 20000,
-		firstTransition: 'zoomOut',
-		transitionDuration:3000,
-		delay: 5000,
-		slides: [
-		  { src: 'images/dog5.png'},
-		  { src: 'images/dog6.png'},
-		  { src: 'images/dog7.png'},
-		  { src: 'images/dog8.png'}
-		],
-		transition:'zoomOut',
-		// overlay:'images/09.png'
-	  });
-	});
-  </script>
-
+  $('#heroItemBravo').vegas({
+  duration: 5000,
+  firstTransition: 'fade2',
+  // firstTransition-­Duration:'1000',
+  transition:'fade2',
+  transitionDuration:1000,
+  delay: 5000,
+  slides: [
+    { src: 'images/dog5.png'},
+    { src: 'images/dog6.png'},
+    { src: 'images/dog7.png'},
+    { src: 'images/dog8.png'}
+  ],
+  // overlay:'images/09.png'
+  });
+});
+</script>
+<script src="js/vegas.min.js"></script>
 </html>
