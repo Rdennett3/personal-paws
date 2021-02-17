@@ -8,6 +8,8 @@
 	<!-- <link rel="stylesheet" href="_css/slick-theme.css"> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 	<script
 	src="https://code.jquery.com/jquery-2.2.4.min.js"
 	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -41,9 +43,10 @@
 		</nav>
 	  </div>
 
+	  <div class="bodyCOntainer">
 	<div class="heroContainer">
 		<div class="heroItem" id="heroItemAlpha">
-			<h1 class="reveal">The School of Personal<br> Paws</h1>
+			<h1 class="reveal">The School of Personal Paws</h1>
 		</div>
 		<div class="heroItem reveal" id="heroItemBravo">
 
@@ -97,43 +100,38 @@
 		</div>
 	</div>
 
-
-	<!-- <div class="sliderOuter">
-		<div class="sliderTitle">
-			<h1 id="testimonialHeadline">What Others Are Saying</h1>
+	<div class="testimonialOuter">
+		<div class="testimonialUpper">
+			<h1>What Others Say</h1>
 		</div>
-
-		<div class="slider">
-
-			<div class="sliderContent">
-				<p class="contentP">"I highly recommend Personal Paws LLC. Their loce of all dogs and passion for what they do is obvious and evident in all of their interations, not only with the pups but also with the pup parents. My Layla absolutely loves Kait and Lizzy! Actually, she adores all of the fabulous trainers at Personal Paws and can barely contain her excitement when they come to pick her up. I have complete confidence that Layla is not only safe with them but also having fun and learning essential skills. Can’t thank them enough!"</p>
-				<h2 class="testName">Kim Putnam</h2>
+		<div class="testimonialLower">
+			<div class="testimonialItem">
+				<p>
+					"I highly recommend Personal Paws LLC. Their loce of all dogs and passion for what they do is obvious and evident in all of their interations, not only with the pups but also with the pup parents. My Layla absolutely loves Kait and Lizzy! Actually, she adores all of the fabulous trainers at Personal Paws and can barely contain her excitement when they come to pick her up. I have complete confidence that Layla is not only safe with them but also having fun and learning essential skills. Can’t thank them enough!"
+				</p>
+				<p><span>Kim Putnam</span></p>
 			</div>
-			<div class="sliderContent">
-				<p class="contentP">
+			<div class="testimonialItem">
+				<p>
+					"Kait and Liz and their trainers are awesome. Our sunshine is having some issues with socializing with people. They have been working with her and us for about a month and we can not be more happy with how Sunshine is doing. Kait came to our house last week, and observed Sunshine, and gave us tips on things to help her and us I really see positive future for Sunshine. Look forward to Jimmy working with them 100% they are the best. I highly recommend them. They love what they do, and we love them."
+				</p>
+				<p><span>Patty Maslanka-Fichtner</span></p>
+			</div>
+			<div class="testimonialItem itemLower">
+				<p>
 					"Easy process to book and prices are reasonable for the care given. Staff is helpful, friendly, and knowledgeable. Out two dogs and kitten were well cared for and all went very smoothly! We are able to go away with confidence that all of our pets will be content and well cared for!"
 				</p>
-				<h2 class="testName">Deb McCloskey Hillier</h2>
+				<p><span>Deb McCloskey Hillier</span></p>
 			</div>
-			<div class="sliderContent">
-				<p class="contentP">
+			<div class="testimonialItem itemLower">
+				<p>
 					"As a first time dog owner Personal Paws has taught me and my boy so much. It’s so nice knowing that he is loved, well taken care of and having FUN! Dylan and Kait have such patience with crazy, stubborn boy and he learns something new every time he sees them!"
 				</p>
-				<h2 class="testName">Steph Brown</h2>
-			</div>
-			<div class="sliderContent">
-				<p class="contentP">
-					"Kait and Liz and their trainers are awesome. Our sunshine is having some issues with socializing with people. They have been working with her and us for about a month and we can not be more happy with how Sunshine is doing. Kait came to our house last week, and observed Sunshine, and gave us tips on things to help her and us I really see positive future for Sunshine. Look forward to Jimmy working with them 100% they are the best. I highly recommend them. They love what they do, and we love them.""
-				</p>
-				<h2 class="testName">Patty Maslanka-Fichtner</h2>
+				<p><span>Steph Brown</span></p>
 			</div>
 		</div>
+	</div>
 
-		<div class="controls">
-			<div class="prev arrow"><img src="images/arrow.svg" alt=""></div>
-			<div class="next arrow"><img src="images/arrow.svg" alt=""></div>
-		</div>
-	</div> -->
 	<div class="cta">
 		<div class="ctaInner" id="ctaInnerAlpha">
 			<!-- <h1>Want to see your best friend here?</h1>
@@ -161,7 +159,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 	<div class="footer">
 		<div class="footerItem">
 		  <img src="images/pawslogo-medium.png" alt="">
@@ -189,7 +187,7 @@
 	  </div>
 
 	<script src="js/index.js"></script>
-	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
 <script>
 	$(function() {
@@ -211,4 +209,18 @@
 });
 </script>
 <script src="js/vegas.min.js"></script>
+<!-- <script>
+    var swiper = new Swiper('.swiper-container', {
+      cssMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination'
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+  </script> -->
 </html>
