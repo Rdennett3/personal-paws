@@ -21,10 +21,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@100;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
 
 // *{
 //   border:1px solid red;
@@ -49,6 +46,7 @@ h1, h2, h3, h4, h5, h6{
   // font-family: 'Fraunces', serif;
   font-family: 'Amatic SC', cursive;
   font-weight:100;
+  // font-family: 'Oswald', sans-serif;
 }
 
 p{
@@ -579,7 +577,7 @@ li{
     h1{
       color:$gunmetal;
       font-weight:100;
-      font-size: 5.5vw;
+      font-size: 6em;
       line-height: 1.25em;
       margin:0;
       padding:0;
@@ -634,18 +632,19 @@ li{
   padding:0 0 2% 2%;
   background:$snow;
   display:flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
 
   h1{
     color:$burgundy;
-    font-size: 12em;
+    font-size: 10em;
     margin:0;
     padding:0;
-    transform:translateY(24%);
+    transform:translateY(25%);
 
     @media screen and (max-width:800px){
-      font-size:3em;
+      font-size:8em;
+      transform:translateY(9%);
     }
   }
 }
@@ -674,6 +673,10 @@ li{
   min-height: 100vh;
   height:auto;
   width:100%;
+
+  @media screen and (max-width:800px){
+    min-height:50vh;
+  }
 }
 
 #gridTopOne{
@@ -707,6 +710,10 @@ li{
   justify-content: center;
   background:$snow;
   grid-area:b;
+
+  @media screen and (max-width:800px){
+    padding:5% 0;
+  }
 
   img{
     width:100%;
@@ -844,15 +851,20 @@ li{
   align-items: flex-end;
   justify-content: flex-end;
 
+  @media screen and (max-width:800px){
+    align-items: center;
+    justify-content: center;
+  }
+
   h1{
-    font-size: 12em;
+    font-size: 10em;
     margin:0;
     padding:0;
     color:$snow;
-    transform:translateY(8%);
+    transform:translateY(12%);
 
     @media screen and (max-width:800px){
-      font-size: 5em;
+      font-size: 4em;
       transform:translateY(0);
       text-align: center;
     }
@@ -874,7 +886,7 @@ li{
 
 .testimonialItem{
   background:$snow;
-  min-height:500px;
+  min-height:400px;
   padding:0 10%;
   display: flex;
   flex-direction: column;
@@ -945,7 +957,6 @@ li{
 // **********
 
 .cta{
- 
   width:100%;
   height:auto;
   display: flex;
@@ -1619,20 +1630,7 @@ li{
 // CONTACT PAGE STYLES
 // *******************
 
-.contactContent{
-  height:auto;
-  width:100%;
-  padding-bottom: 5%;;
 
-  background:$snow;
-  display: flex;
-  flex-direction:column;
-
-  @media screen and (max-width:1000px){
-    flex-direction: column;
-  }
-
-}
 
 .socialIcons{
   i{
@@ -1642,21 +1640,27 @@ li{
   }
 }
 
-.contactInner{
-  width:100%;
-  height:auto;
-  padding:0 5%;
-  background: $burgundy;
+.contactContent{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: ". .";
 
-  @media screen and (max-width:1000px){
-    width:100%;
+  @media screen and (max-width:800px){
+    grid-template-columns: 1fr;
+    grid-template-areas: "." ".";
   }
-  &::nth-of-type(2){
-    iframe{
-      width:100%;
+}
 
-    }
-  }
+.contentItem{
+  border:1px solid red;
+  min-height: 500px;
+}
+
+.map{
+  height:50vh;
+  margin:0 5%;
+  padding:5% 0;
 }
 
 form{
