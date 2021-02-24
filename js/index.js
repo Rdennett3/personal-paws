@@ -3,26 +3,6 @@ $('#toggle').click(function() {
   $('#overlay').toggleClass('open');
  });
 
-
-
-// *********************
-// HIDE HEADER ON SCROLL
-// *********************
-
-// var prevScrollpos = window.pageYOffset;
-// window.onscroll = function() {
-//   var currentScrollPos = window.pageYOffset;
-//   if (prevScrollpos > currentScrollPos) {
-//     document.getElementById("menuContainer").style.top = "0";
-//   } else {
-//     document.getElementById("menuContainer").style.top = "-50px";
-//   }
-//   prevScrollpos = currentScrollPos;
-// }
-// *************************
-// END HIDE HEADER ON SCROLL
-// *************************
-
 gsap.registerPlugin(ScrollTrigger);
 
 // const topIntroText = gsap.from('#heroItemAlpha h1',  {
@@ -46,6 +26,157 @@ gsap.registerPlugin(ScrollTrigger);
 //   start: '-50px bottom',
 //   onLeaveBack: () => topIntroText.pause(0)
 // });
+
+const aboutone = gsap.from('#aboutone h1',  {
+  
+  x:-150,
+  pin:true,
+  autoAlpha:0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '.aboutOuter',
+  start: 'top 500px',
+  onEnter: () => aboutone.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '.aboutOuter',
+  start: '-50px bottom',
+  onLeaveBack: () => aboutone.pause(0)
+});
+
+const abouttwo = gsap.from('#abouttwo p',  {
+  
+  x:-150,
+  pin:true,
+  autoAlpha:0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#abouttwo p',
+  start: 'top 500px',
+  onEnter: () => abouttwo.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#abouttwo p',
+  start: '-50px bottom',
+  onLeaveBack: () => abouttwo.pause(0)
+});
+
+const abouttwoalpha = gsap.from('#abouttwo',  {
+  
+  y:150,
+  pin:true,
+  autoAlpha:0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#abouttwo',
+  start: 'top 500px',
+  onEnter: () => abouttwoalpha.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#abouttwo p',
+  start: '-50px bottom',
+  onLeaveBack: () => abouttwoalpha.pause(0)
+});
+
+const aboutthree = gsap.from('#aboutthree',  {
+  
+  x:150,
+  pin:true,
+  autoAlpha:0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutthree',
+  start: 'top 500px',
+  onEnter: () => aboutthree.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutthree',
+  start: '-50px bottom',
+  onLeaveBack: () => aboutthree.pause(0)
+});
+
+const aboutfour = gsap.from('#aboutfour',  {
+  
+  x:-150,
+  pin:true,
+  autoAlpha:0,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfour',
+  start: 'top 500px',
+  onEnter: () => aboutfour.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfour',
+  start: '-50px bottom',
+  onLeaveBack: () => aboutfour.pause(0)
+});
+
+const aboutfive = gsap.from('#aboutfive p',  {
+  x:150,
+  pin:true,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfive',
+  start: 'top 500px',
+  onEnter: () => aboutfive.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfive',
+  start: '-50px bottom',
+  onLeaveBack: () => aboutfive.pause(0)
+});
+
+const aboutfivealpha = gsap.from('#aboutfive',  {
+  y:200,
+  autoAlpha:0,
+  pin:true,
+  duration: 1,
+  ease: 'ease-in',
+  paused: true,
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfive',
+  start: 'top 500px',
+  onEnter: () => aboutfivealpha.restart()
+});
+
+ScrollTrigger.create({
+  trigger: '#aboutfive',
+  start: '-50px bottom',
+  onLeaveBack: () => aboutfivealpha.pause(0)
+});
 
 const serviceHeaderOne = gsap.from('#serviceheaderOne', {
   y:50,
@@ -290,7 +421,7 @@ ScrollTrigger.create({
 });
 
 const testimonialItem = gsap.from('.testimonialItem p', {
-  x:-50,
+  y:50,
   pin:true,
   autoAlpha:0,
   duration:1,
