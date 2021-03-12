@@ -5,10 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="_css/style.css">
   <title>Personal Paws | Rotterdam, NY</title>
-  <script
-	src="https://code.jquery.com/jquery-2.2.4.min.js"
-	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-	crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -42,51 +40,47 @@
 
   <div class="hearFromYou">
     <h1>We would love to hear your thoughts!</h1>
+    <p>
+      At Personal Paws we treat your dog as if they were our very own. We take the safety of all pets very seriously. If there are any health issues or restriction to your pet’s everyday routine that we should be aware of please let us know.
+    </p>
   </div>
 
 
   <div class="contactContent">
-    <div class="contentItem">
+    <div class="contentItem" id="contactForm">
       <form
-  action="https://formspree.io/f/xbjddwng"
-  method="POST"
->
-<label>
-  <span style="display: none;">Your name:</span>
-  <input type="text" name="_replyto" placeholder="Your Name">
-</label>
-  <label>
-    <span style="display: none;">Your email:</span>
-    <input type="text" name="_replyto" placeholder="Your Email Address">
-  </label>
-  <label>
-    <span style="display: none;">Your message:</span>
-    <textarea name="message" placeholder="What Would You Like To Know?"></textarea>
-  </label>
-
-  <!-- your other form fields go here -->
-
-  <button type="submit" class="mainBtn3">Send</button>
-</form>
-
+      action="https://formspree.io/f/xbjddwng"
+      method="POST"
+    >
+    <label>
+      <span style="display: none;">Your name:</span>
+      <input type="text" name="_replyto" placeholder="Your Name" class="formItem">
+    </label>
+      <label>
+        <span style="display: none;">Your email:</span>
+        <input type="text" name="_replyto" placeholder="Your Email Address" class="formItem">
+      </label>
+      <label>
+        <span style="display: none;">Your message:</span>
+        <textarea name="message" placeholder="What Would You Like To Know?" class="formItem"></textarea>
+      </label>
+    
+      <!-- your other form fields go here -->
+    
+      <button type="submit" class="mainBtn3 formItem">Send</button>
+    </form>
     </div>
-    <div class="contentItem">
-      <p>
-        At Personal Paws we treat your dog as if they were our very own. We take the safety of all pets very seriously. If there are any health issues or restriction to your pet’s everyday routine that we should be aware of please let us know.
-      </p>
-      <div class="socialIcons">
-        <a href="">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
+    <div class="contentItem" id="social"> 
+      <a href="">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
-  </div>
-
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2927.398129853534!2d-74.02639428512647!3d42.80107211512987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de700c780f4cf7%3A0xf9e90de1134d3f75!2s1197%20Mariaville%20Rd%2C%20Schenectady%2C%20NY%2012306!5e0!3m2!1sen!2sus!4v1607463710615!5m2!1sen!2sus" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div class="contentItem" id="map">
+      
+    </div>
   </div>
 
   <div class="footer">
@@ -114,9 +108,100 @@
       <p>&copy; 2021 The School Of Personal Paws</p>
     </div>
   </div>
+    <script>
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 42.8010682, lng: -74.0263943 },
+          zoom: 14,
+          disableDefaultUI: true,
+          styles:[
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#BA324F'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#175676'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#CCE6F4'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#CCE6F4'}]
+            }
+          ]
+        });
+      }
+    </script>
 
   <script src="js/index.js"></script>
-	<script type="text/javascript" src="js/slick.min.js"></script>
+  <script src="js/contact.js"></script>
   <script src="https://kit.fontawesome.com/1d5df32093.js" crossorigin="anonymous"></script>
   <script defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTsnqP9BtU1vfrio4qYbiu8h2DJSzHGCs&callback=initMap">
